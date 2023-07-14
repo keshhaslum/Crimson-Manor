@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useChosenClues } from '../clues';
 
 export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
+  const chosenClues = useChosenClues();
+
   const clues = [
     {
       room: 'room1',
@@ -15,8 +18,6 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
       clues: [allFakeClues[4], allFakeClues[5], allMurdererClues[2]],
     },
   ];
-
-  console.log(clues);
 
   const [roomTracker, setRoomTracker] = useState(0);
   const [currentRoom, setCurrentRoom] = useState(allRooms[0]);
@@ -53,7 +54,12 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
           <h3>{`${currentRoom.room}${currentRoom.img}`}</h3>
         </div>
 
-        <div className="room-selected-clue-img">
+        <div
+          className="room-selected-clue-img"
+          onClick={() => {
+            chosenClues.updateClues(selectedClue);
+          }}
+        >
           <p>{selectedClue?.img}</p>
         </div>
 

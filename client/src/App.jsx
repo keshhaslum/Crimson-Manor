@@ -8,30 +8,34 @@ import Instructions from './components/Instructions';
 import Finalpage from './components/Finalpage';
 import Homepage from './components/Homepage';
 import Rooms from './components/Rooms';
+import { CluesProvider } from './clues';
+// Temporary
 import data from './mockData';
 
 function App() {
   return (
     <div>
-      <Routes>
-        <Route path="/crime" element={<Crime />}></Route>
-        <Route path="/scene" element={<Scene />}></Route>
-        <Route path="/character" element={<Character />}></Route>
-        <Route path="/instructions" element={<Instructions />}></Route>
+      <CluesProvider>
+        <Routes>
+          <Route path="/crime" element={<Crime />}></Route>
+          <Route path="/scene" element={<Scene />}></Route>
+          <Route path="/character" element={<Character />}></Route>
+          <Route path="/instructions" element={<Instructions />}></Route>
 
-        <Route path="/finalpage" element={<Finalpage />}></Route>
-        <Route path="/homepage" element={<Homepage />}></Route>
-        <Route
-          path="/rooms"
-          element={
-            <Rooms
-              allRooms={data.allRooms}
-              allFakeClues={data.allFakeClues}
-              allMurdererClues={data.allMurdererClues}
-            />
-          }
-        ></Route>
-      </Routes>
+          <Route path="/finalpage" element={<Finalpage />}></Route>
+          <Route path="/homepage" element={<Homepage />}></Route>
+          <Route
+            path="/rooms"
+            element={
+              <Rooms
+                allRooms={data.allRooms}
+                allFakeClues={data.allFakeClues}
+                allMurdererClues={data.allMurdererClues}
+              />
+            }
+          ></Route>
+        </Routes>
+      </CluesProvider>
     </div>
   );
 }
