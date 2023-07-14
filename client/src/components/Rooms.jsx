@@ -16,9 +16,12 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
     },
   ];
 
+  console.log(clues);
+
   const [roomTracker, setRoomTracker] = useState(0);
   const [currentRoom, setCurrentRoom] = useState(allRooms[0]);
   const [currentClues, setCurrentClues] = useState(clues[0]);
+  const [selectedClue, setSelectedClue] = useState(null);
 
   useEffect(() => {
     setCurrentRoom(allRooms[roomTracker]);
@@ -56,7 +59,12 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
 
         <div className="room-clues-container">
           {currentClues.clues.map((clue, index) => (
-            <div key={`clue${index}`}>
+            <div
+              key={`clue${index}`}
+              onClick={() => {
+                setSelectedClue(clue);
+              }}
+            >
               <p>{clue.img}</p>
             </div>
           ))}
