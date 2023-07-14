@@ -1,34 +1,68 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
-  console.log(allFakeClues);
+  const clues = [
+    {
+      room: 'room1',
+      clues: [allFakeClues[0], allFakeClues[1], allMurdererClues[0]],
+    },
+    {
+      room: 'room2',
+      clues: [allFakeClues[2], allFakeClues[3], allMurdererClues[1]],
+    },
+    {
+      room: 'room3',
+      clues: [allFakeClues[4], allFakeClues[5], allMurdererClues[2]],
+    },
+  ];
+
+  const [roomTracker, setRoomTracker] = useState(0);
   const [currentRoom, setCurrentRoom] = useState(allRooms[0]);
-  const [room1Clues, setRoom1Clues] = useState([
-    allFakeClues[0],
-    allFakeClues[1],
-    allMurdererClues[0],
-  ]);
+  const [currentClues, setCurrentClues] = useState(clues[0]);
+
+  useEffect(() => {
+    setCurrentRoom(allRooms[roomTracker]);
+    setCurrentClues(clues[roomTracker]);
+  }, [roomTracker]);
+
+  const goToPreviousRoom = () => {
+    setRoomTracker((prevRoomTracker) =>
+      prevRoomTracker === 0 ? prevRoomTracker : prevRoomTracker - 1
+    );
+  };
+
+  const goToNextRoom = () => {
+    setRoomTracker((prevRoomTracker) =>
+      prevRoomTracker === allRooms.length - 1
+        ? prevRoomTracker
+        : prevRoomTracker + 1
+    );
+  };
 
   return (
-    <div className="rooms-container">
-      <div className="room-name-img">
-        <h3>{`${currentRoom.room}${currentRoom.img}`}</h3>
-      </div>
+    <>
+      <button onClick={goToPreviousRoom}>Previous Room</button>
 
-      <div className="room-selected-clue-img">
-        <p></p>
-      </div>
+      <div className="rooms-container">
+        <div className="room-name-img">
+          <h3>{`${currentRoom.room}${currentRoom.img}`}</h3>
+        </div>
 
-      <div className="room-selected-clue-description"></div>
+        <div className="room-selected-clue-img">
+          <p></p>
+        </div>
 
-      <div className="room-clues-container">
-        {room1Clues.map((clue) => (
-          <div key={clue.id}>
-            <p>{clue.img}</p>
-          </div>
-        ))}
+        <div className="room-selected-clue-description"></div>
+
+        <div className="room-clues-container">
+          {currentClues.clues.map((clue, index) => (
+            <div key={`clue${index}`}>
+              <p>{clue.img}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+      <button onClick={goToNextRoom}>Next Room</button>
+    </>
   );
 }
