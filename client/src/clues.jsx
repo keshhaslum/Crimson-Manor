@@ -6,8 +6,12 @@ const AuthContext = React.createContext();
 function CluesProvider({ children }) {
   const [chosenClues, setChosenClues] = useState([]);
 
+  //   const updateClues = (clue) => {
+  //     setChosenClues(clue);
+  //   };
+
   const updateClues = (clue) => {
-    setChosenClues(clue);
+    setChosenClues((prevClues) => [...prevClues, clue]);
   };
 
   const clues = { chosenClues, updateClues };
