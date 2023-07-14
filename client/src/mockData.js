@@ -1,6 +1,7 @@
-const murderer = 3;
 
-const allCharacters = [
+ const murderer = 3;
+
+ const allCharacters = [
   {
     id: 1,
     name: 'Emily',
@@ -27,7 +28,7 @@ const allCharacters = [
   },
 ];
 
-const rooms = [
+ const allRooms = [
   {
     id: '1',
     room: 'study',
@@ -51,7 +52,7 @@ const rooms = [
   },
 ];
 
-const murdererClues = [
+ const allMurdererClues = [
   {
     id: '13',
     description: `A heartfelt letter from Isabella to her father, expressing her disappointment and longing for a relationship.`,
@@ -72,7 +73,7 @@ const murdererClues = [
   },
 ];
 
-const fakeClues = [
+ const allFakeClues = [
   {
     id: '0',
     description: 'test clue',
@@ -110,3 +111,4 @@ const fakeClues = [
     img: '💙',
   },
 ];
+export default {allRooms, allFakeClues, allMurdererClues};
