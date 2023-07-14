@@ -32,6 +32,7 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
     setRoomTracker((prevRoomTracker) =>
       prevRoomTracker === 0 ? prevRoomTracker : prevRoomTracker - 1
     );
+    setSelectedClue(null);
   };
 
   const goToNextRoom = () => {
@@ -40,6 +41,7 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
         ? prevRoomTracker
         : prevRoomTracker + 1
     );
+    setSelectedClue(null);
   };
 
   return (
@@ -52,10 +54,12 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
         </div>
 
         <div className="room-selected-clue-img">
-          <p></p>
+          <p>{selectedClue?.img}</p>
         </div>
 
-        <div className="room-selected-clue-description"></div>
+        <div className="room-selected-clue-description">
+          <p>{selectedClue?.description}</p>
+        </div>
 
         <div className="room-clues-container">
           {currentClues.clues.map((clue, index) => (
