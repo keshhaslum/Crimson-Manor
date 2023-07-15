@@ -52,7 +52,7 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
     <div className="rooms-container">
       <ChosenClues />
       <button className="prev-button" onClick={goToPreviousRoom}>
-        P
+        ⬅️
       </button>
       <div className="current-room">
         <div className="room-info">
@@ -85,7 +85,7 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
         </div>
       </div>
       <button className="next-button" onClick={goToNextRoom}>
-        N
+        ➡️
       </button>
       <Link to={`/finalpage/`}>
         <button>Guess</button>

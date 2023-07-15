@@ -22,6 +22,7 @@
   width: 100%;
 }
 .rooms-container {
+  background-color: turquoise;
   align-items: center;
   display: grid;
   grid-template-areas:
@@ -42,6 +43,7 @@
 }
 
 .room-info {
+  background-color: lightgreen;
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
@@ -55,8 +57,14 @@
 
 .prev-button,
 .next-button {
-  height: 25px;
-  width: 50px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  width: 30px;
 }
 
 .selected-clue {
@@ -128,10 +136,10 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   display: flex;
-  height: 57px;
+  height: 60px;
   justify-content: center;
   margin: 5px 10px;
-  width: 57px;
+  width: 60px;
 }
 
 .clues-container,
