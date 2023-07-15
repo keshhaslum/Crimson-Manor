@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import ChosenClues from './ChosenClues';
+import Suspects from './Suspects';
 import { useChosenClues } from '../clues';
 
 export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
@@ -47,8 +50,8 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
 
   return (
     <>
+      <ChosenClues />
       <button onClick={goToPreviousRoom}>Previous Room</button>
-
       <div className="rooms-container">
         <div className="room-name-img">
           <h3>{`${currentRoom.room}${currentRoom.img}`}</h3>
@@ -81,6 +84,10 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
         </div>
       </div>
       <button onClick={goToNextRoom}>Next Room</button>
+      <Link to={`/finalpage/`}>
+        <button>Guess</button>
+      </Link>
+      <Suspects></Suspects>
     </>
   );
 }

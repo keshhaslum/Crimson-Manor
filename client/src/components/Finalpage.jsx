@@ -1,4 +1,4 @@
-//logo 
+//logo
 //user character emoji
 //box shows 3 added clues
 //"who committed the crime?"
@@ -8,22 +8,17 @@
 
 //back to start button navigate to homepage
 
-import React from 'react'
-import { Link } from "react-router-dom";
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Finalpage() {
   return (
     <div>
-        <h2>Who committed the crime?</h2>
+      <h2>Who committed the crime?</h2>
 
-
-        
-        
-        
-<Link to={`/homepage/`}>
-<button>Back to start
-</button></Link>
-   </div>
-  )
+      <Link to={`/`}>
+        <button>Back to start</button>
+      </Link>
+    </div>
+  );
 }
