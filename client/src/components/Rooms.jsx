@@ -63,7 +63,7 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
         <div
           className="selected-clue"
           onClick={() => {
-            chosenClues.updateClues(selectedClue);
+            chosenClues.addClues(selectedClue);
           }}
         >
           <p className="circular-button">{selectedClue?.img}</p>

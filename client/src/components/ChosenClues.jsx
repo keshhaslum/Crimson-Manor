@@ -5,13 +5,17 @@ export default function ChosenClues() {
   const cluesProvider = useChosenClues();
   const chosenClues = cluesProvider.chosenClues;
 
-  // const removeClues = (clue) => {
-
-  // }
+  const removeClues = (clue) => {
+    cluesProvider.removeClues(clue);
+  };
   return (
     <div className="chosen-clues-container">
-      {chosenClues.map((clue) => (
-        <div className="circular-button" key={`clue${clue.id}`}>
+      {chosenClues.map((clue, index) => (
+        <div
+          className="circular-button"
+          key={`chosenClue${index}`}
+          onClick={() => removeClues(clue)}
+        >
           {clue.img}
         </div>
       ))}
