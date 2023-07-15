@@ -13,7 +13,7 @@ import data from './mockData';
 
 function App() {
   return (
-    <div>
+    <div className="game-container">
       <CluesProvider>
         <Routes>
           <Route path="/" element={<Homepage />} />

@@ -1,53 +1,20 @@
-//logo
-//emoji for user character
-//game instructions title
-//empty box where clues will be stored
-//area for description of clue
-//box for 3 clue options (get clue by id)
-//3 suspects/emojis at bottom of page (get characters by id)
-//arrows forward and backward
-
-import React from 'react'
-import { Link } from "react-router-dom";
-
-
-function getFakeClues () {
- 
-  const [fakeClues, setFakeClues] = useState([]);
-
-  useEffect(() => {
-    getAllFakeClues();
-  }, []);
-
-
-
-}
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Instructions() {
   return (
-    <div>
-        <h2>Game Instructions</h2>
+    <div className="instructions-container">
+      <h1>Game Instructions</h1>
 
+      <p>Your chosen clues will be stored here.</p>
 
-    <p> <h3 classname="cluesexample">
-      Your chosen clues will be stored here.</h3></p>
+      <Link to={`/character/`}>
+        <button className="regular-button">Previous</button>
+      </Link>
 
-   <p></p>
-
-
-
-
-
-
-<Link to={`/character/`}>
-<button>Previous
-</button></Link>
-
-<Link to={`/rooms/`}>
-<button>Next
-</button></Link>
-    
+      <Link to={`/rooms/`}>
+        <button className="regular-button">Next</button>
+      </Link>
     </div>
-  )
+  );
 }

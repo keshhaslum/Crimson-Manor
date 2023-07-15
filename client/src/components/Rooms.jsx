@@ -49,10 +49,10 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
   };
 
   return (
-    <>
+    <div className="rooms-container">
       <ChosenClues />
       <button onClick={goToPreviousRoom}>Previous Room</button>
-      <div className="rooms-container">
+      <div className="current-rrom">
         <div className="room-name-img">
           <h3>{`${currentRoom.room}${currentRoom.img}`}</h3>
         </div>
@@ -73,6 +73,7 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
         <div className="room-clues-container">
           {currentClues.clues.map((clue, index) => (
             <div
+              className="circular-button"
               key={`clue${index}`}
               onClick={() => {
                 setSelectedClue(clue);
@@ -88,6 +89,6 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
         <button>Guess</button>
       </Link>
       <Suspects></Suspects>
-    </>
+    </div>
   );
 }

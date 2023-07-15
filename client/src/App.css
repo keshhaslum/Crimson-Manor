@@ -1,42 +1,98 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.game-container {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  font-family: 'Inter', sans-serif;
+  height: 95vh;
+  justify-content: center;
+  margin: auto;
+  width: 50vw;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.homepage-container,
+.scene-container,
+.crime-container,
+.character-container,
+.instructions-container,
+.rooms-container {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  height: inherit;
+  justify-content: space-between;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.homepage-container h1,
+.scene-container h1,
+.crime-container h1,
+.character-container h1,
+.instructions-container h1 {
+  font-family: 'Just Me Again Down Here', cursive;
+  font-size: 50px;
+  color: #790f0f;
 }
 
-.card {
-  padding: 2em;
+.homepage-container h2,
+.scene-container h2,
+.crime-container h2,
+.character-container h2,
+.instructions-container h2 {
+  font-size: 200px;
+  line-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.read-the-docs {
-  color: #888;
-} */
+.homepage-container p,
+.scene-container p,
+.crime-container p,
+.character-container p,
+. p {
+  font-size: 20px;
+}
+
+.regular-button {
+  background-color: #bf5050;
+  border: none;
+  color: white;
+  cursor: pointer;
+  height: 60px;
+  font-size: 30px;
+  padding: 0 15px;
+  width: 175px;
+}
+
+.circular-button {
+  align-items: center;
+  background-color: white;
+  border: 1px solid #f9f3f3;
+  border-radius: 100%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  height: 57px;
+  justify-content: center;
+  margin: 5px 10px;
+  width: 57px;
+}
+
+.room-clues-container,
+.chosen-clues-container {
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid #e7e7e7;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.suspects-buttons {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}

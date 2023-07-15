@@ -7,10 +7,11 @@ export default function Suspects() {
   const allCharacters = data.allCharacters;
   const [currentCharacter, setCurrentCharacter] = useState(null);
   return (
-    <div>
-      <div>
+    <div className="suspects-container">
+      <div className="suspects-buttons">
         {allCharacters.map((character) => (
           <div
+            className="circular-button"
             key={character.id}
             onClick={() => {
               setCurrentCharacter(character);
