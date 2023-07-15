@@ -51,26 +51,26 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
   return (
     <div className="rooms-container">
       <ChosenClues />
-      <button onClick={goToPreviousRoom}>Previous Room</button>
-      <div className="current-rrom">
-        <div className="room-name-img">
+      <button className="prev-button" onClick={goToPreviousRoom}>
+        P
+      </button>
+      <div className="current-room">
+        <div className="room-info">
           <h3>{`${currentRoom.room}${currentRoom.img}`}</h3>
+          <p>{currentRoom.description}</p>
         </div>
 
         <div
-          className="room-selected-clue-img"
+          className="selected-clue"
           onClick={() => {
             chosenClues.updateClues(selectedClue);
           }}
         >
-          <p>{selectedClue?.img}</p>
-        </div>
-
-        <div className="room-selected-clue-description">
+          <p className="circular-button">{selectedClue?.img}</p>
           <p>{selectedClue?.description}</p>
         </div>
 
-        <div className="room-clues-container">
+        <div className="clues-container">
           {currentClues.clues.map((clue, index) => (
             <div
               className="circular-button"
@@ -84,11 +84,13 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
           ))}
         </div>
       </div>
-      <button onClick={goToNextRoom}>Next Room</button>
+      <button className="next-button" onClick={goToNextRoom}>
+        N
+      </button>
       <Link to={`/finalpage/`}>
         <button>Guess</button>
       </Link>
-      <Suspects></Suspects>
+      {/* <Suspects className="suspects-container"></Suspects> */}
     </div>
   );
 }

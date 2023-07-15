@@ -4,6 +4,10 @@ import { useChosenClues } from '../clues';
 export default function ChosenClues() {
   const cluesProvider = useChosenClues();
   const chosenClues = cluesProvider.chosenClues;
+
+  // const removeClues = (clue) => {
+
+  // }
   return (
     <div className="chosen-clues-container">
       {chosenClues.map((clue) => (
