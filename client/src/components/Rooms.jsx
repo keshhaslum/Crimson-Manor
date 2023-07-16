@@ -66,8 +66,16 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
             chosenClues.addClues(selectedClue);
           }}
         >
-          <p className="circular-button">{selectedClue?.img}</p>
-          <p>{selectedClue?.description}</p>
+          {selectedClue && (
+            <p className="circular-button">{selectedClue?.img}</p>
+          )}
+
+          <p className="clue-description">{selectedClue?.description}</p>
+          {chosenClues.chosenClues.length === 3 && (
+            <Link to={`/finalpage/`}>
+              <button className="guess-button">Guess 🕵🏼‍♀️</button>
+            </Link>
+          )}
         </div>
 
         <div className="clues-container">
@@ -84,13 +92,14 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
           ))}
         </div>
       </div>
-      <button className="next-button" onClick={goToNextRoom}>
-        ➡️
-      </button>
-      <Link to={`/finalpage/`}>
-        <button>Guess</button>
-      </Link>
-      {/* <Suspects className="suspects-container"></Suspects> */}
+
+      {roomTracker <= 1 && (
+        <button className="next-button" onClick={goToNextRoom}>
+          ➡️
+        </button>
+      )}
+
+      <Suspects className="suspects-container"></Suspects>
     </div>
   );
 }

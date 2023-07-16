@@ -30,21 +30,21 @@ const allCharacters = [
 const allRooms = [
   {
     id: '1',
-    room: 'study',
+    room: 'Study',
     main_location: 'mansion',
     description: `The room where the victim's body was discovered. It is elegantly furnished with antique furniture and lined with bookshelves filled with rare editions.`,
     img: '📚',
   },
   {
     id: '2',
-    room: 'ballroom',
+    room: 'Ballroom',
     main_location: 'mansion',
     description: `A grand ballroom with a sparkling chandelier, ornate decorations, and a polished marble floor. It seems to have been recently used for a party.`,
     img: '👯',
   },
   {
     id: '3',
-    room: 'conservatory',
+    room: 'Conservatory',
     main_location: 'mansion',
     description: `A tranquil conservatory filled with exotic plants and flowers. It offers a serene escape from the rest of the mansion.`,
     img: '🪴',

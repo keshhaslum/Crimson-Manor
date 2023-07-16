@@ -7,6 +7,9 @@ function CluesProvider({ children }) {
   const [chosenClues, setChosenClues] = useState([]);
 
   const addClues = (clue) => {
+    if (chosenClues.length >= 3) {
+      return;
+    }
     setChosenClues((prevClues) => [...prevClues, clue]);
   };
 

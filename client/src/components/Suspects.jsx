@@ -21,7 +21,7 @@ export default function Suspects() {
           </div>
         ))}
       </div>
-      <div>
+      {/* <div>
         <button
           onClick={() => {
             setCurrentCharacter(null);
@@ -32,7 +32,7 @@ export default function Suspects() {
         <h3>{currentCharacter?.name}</h3>
         <h3>{currentCharacter?.last_name}</h3>
         <p>{currentCharacter?.description}</p>
-      </div>
+      </div> */}
     </div>
   );
 }
