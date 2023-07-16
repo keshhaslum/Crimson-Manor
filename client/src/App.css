@@ -200,7 +200,7 @@
     display: flex;
     flex-flow: column nowrap;
     grid-area: selected-clue;
-    height: 25vh;
+    height: 50vh;
     justify-content: center;
     width: 50%;
   }
@@ -214,6 +214,11 @@
     justify-content: space-around;
     margin: auto;
     max-width: 500px;
+  }
+
+  .clues-container,
+  .chosen-clues-container {
+    margin: 5px auto;
   }
 }
 
