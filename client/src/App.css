@@ -169,6 +169,33 @@
   margin: auto;
   max-width: 500px;
 }
+/* Test */
+.suspects-info {
+  display: flex;
+  flex-flow: column nowrap;
+}
+/* Test */
+.suspects-info button {
+  align-self: flex-end;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+}
+
+.popup {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  z-index: 9999;
+}
 
 @media only screen and (min-width: 481px) and (max-width: 900px) {
   .rooms-container {
