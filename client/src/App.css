@@ -169,6 +169,57 @@
   margin: auto;
   max-width: 500px;
 }
+/* Test */
+.suspects-info {
+  display: flex;
+  flex-flow: column nowrap;
+}
+/* Test */
+.close-button {
+  align-self: flex-end;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+}
+
+/* Test */
+.guess-button {
+  align-self: center;
+  background-color: #bf5050;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+}
+
+.popup {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  z-index: 9999;
+}
+
+.final-clues {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.final-clue {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
 
 @media only screen and (min-width: 481px) and (max-width: 900px) {
   .rooms-container {
@@ -220,11 +271,19 @@
   .chosen-clues-container {
     margin: 5px auto;
   }
+  .popup {
+    top: 50%;
+    width: 300px;
+  }
 }
 
 @media (min-width: 1024px) {
   .game-container {
     max-width: 500px;
     height: 95vh;
+  }
+
+  .popup {
+    width: 350px;
   }
 }

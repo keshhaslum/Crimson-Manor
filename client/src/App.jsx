@@ -33,7 +33,10 @@ function App() {
               </>
             }
           />
-          <Route path="/finalpage" element={<Finalpage />} />
+          <Route
+            path="/finalpage"
+            element={<Finalpage murdererId={data.murderer} />}
+          />
         </Routes>
       </CluesProvider>
     </div>
