@@ -97,9 +97,9 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
           ➡️
         </button>
       )}
-      {chosenClues.chosenClues.length === 3 && (
+      {chosenClues.chosenClues.length === 3 && roomTracker == 2 && (
         <Link to={`/finalpage/`}>
-          <button className="next-button guess-button">🕵🏼‍♀️</button>
+          <button className="next-button">🕵🏼‍♀️</button>
         </Link>
       )}
 
