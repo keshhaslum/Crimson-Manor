@@ -4,6 +4,7 @@ const db = require('../model/helper.js');
 
 // GET all characters
 // will deliver: [{id: int, name: string, last_name: string, description: string, img: string}]
+
 router.get('/', async function(req, res, next) {
   const sql = `SELECT * FROM characters;`;
  
@@ -18,11 +19,13 @@ router.get('/', async function(req, res, next) {
     res.status(500).json({ error: 'Failed to retrieve characters' });
   }
 
+
 });
 
 
 // GET character by ID
 // will deliver: {id: 0, name: string, last_name: string, description: string, img: string}
+
 router.get('/:id', async function(req, res, next) {
   const characterId = req.params.id;
   const sql = `SELECT id, name, last_name, description, img FROM characters WHERE id = ('${characterId}');`;
@@ -37,12 +40,14 @@ router.get('/:id', async function(req, res, next) {
     res.status(500).json({ error: 'Failed to retrieve characters' });
   }
   
+
 });
   
 
 
 // GET all clues
 // will deliver: [{id: 0, description: string, img: string}]
+
 router.get('/clues', async function(req, res, next) {
   const sql = `SELECT * FROM clues;`;
   
@@ -56,6 +61,7 @@ router.get('/clues', async function(req, res, next) {
     console.error('Error retrieving clues', error);
     res.status(500).json({ error: 'Failed to retrieve clues' });
   }
+
 });
   
   
@@ -63,6 +69,7 @@ router.get('/clues', async function(req, res, next) {
 
 // GET clue by ID
 // will deliver: {id: 0, description: string, img: string}
+
 router.get('/clues/:id', async function(req, res, next) {
   const clueId = req.params.id;
   const sql = `SELECT * FROM clues WHERE id = ('${req.params.id}');`;
@@ -193,15 +200,16 @@ router.get('/rooms/:id', async function(req, res, next) {
 
 
 
+
 module.exports = router;
 
-
-// All the things that need to be queried. 
-// 1. Endpoint for all characters- return an array of objects containing all necessary fields (id, name, last_name, description, img) from characters table. Get requests: Get all characters and Get characters by id (this should return an object). 
+// All the things that need to be queried.
+// 1. Endpoint for all characters- return an array of objects containing all necessary fields (id, name, last_name, description, img) from characters table. Get requests: Get all characters and Get characters by id (this should return an object).
 // [{id: int, name: string, last_name: string, description: string, img: string}]- get characters; same for get by id, but an object
-// 2. Clues should be an array of objects 
+// 2. Clues should be an array of objects
 // 3. Rooms should be an array of objects
 // 4. At the end of the game, booleans need to go back to false/default
 
 
-// Need logic for what clue goes in what room
+// The murderer was randomly picked and is the character with the id 3
+
