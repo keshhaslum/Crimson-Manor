@@ -5,7 +5,7 @@
   font-family: 'Inter', sans-serif;
   justify-content: center;
   margin: auto;
-  max-width: 500px;
+  /* max-width: 500px; */
   text-align: center;
 }
 
@@ -69,7 +69,6 @@
 }
 
 .selected-clue {
-  /* background-color: lightcoral; */
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
@@ -171,8 +170,56 @@
   max-width: 500px;
 }
 
+@media only screen and (min-width: 481px) and (max-width: 900px) {
+  .rooms-container {
+    grid-template-areas:
+      'suspects-container chosen-clues chosen-clues'
+      'suspects-container room-info selected-clue'
+      'prev-button clues-container next-button';
+  }
+
+  .current-room {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  .room-info {
+    /* background-color: lightgreen; */
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    grid-area: room-info;
+    height: auto;
+    justify-content: center;
+    width: 50%;
+  }
+  .selected-clue {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    grid-area: selected-clue;
+    height: 25vh;
+    justify-content: center;
+    width: 50%;
+  }
+  .suspects-container {
+    align-self: flex-start;
+  }
+  .suspects-buttons {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    margin: auto;
+    max-width: 500px;
+  }
+}
+
 @media (min-width: 1024px) {
   .game-container {
+    max-width: 500px;
     height: 95vh;
   }
 }

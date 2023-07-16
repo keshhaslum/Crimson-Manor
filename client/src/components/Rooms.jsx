@@ -76,20 +76,20 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
 
           <p className="clue-description">{selectedClue?.description}</p>
         </div>
+      </div>
 
-        <div className="clues-container">
-          {currentClues.clues.map((clue, index) => (
-            <div
-              className="circular-button"
-              key={`clue${index}`}
-              onClick={() => {
-                setSelectedClue(clue);
-              }}
-            >
-              <p>{clue.img}</p>
-            </div>
-          ))}
-        </div>
+      <div className="clues-container">
+        {currentClues.clues.map((clue, index) => (
+          <div
+            className="circular-button"
+            key={`clue${index}`}
+            onClick={() => {
+              setSelectedClue(clue);
+            }}
+          >
+            <p>{clue.img}</p>
+          </div>
+        ))}
       </div>
 
       {roomTracker <= 1 && (
@@ -98,7 +98,7 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
         </button>
       )}
       {chosenClues.chosenClues.length === 3 && roomTracker == 2 && (
-        <Link to={`/finalpage/`}>
+        <Link className="next-button" to={`/finalpage/`}>
           <button className="next-button">🕵🏼‍♀️</button>
         </Link>
       )}
