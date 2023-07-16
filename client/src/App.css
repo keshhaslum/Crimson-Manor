@@ -197,6 +197,29 @@
   z-index: 9999;
 }
 
+.final-clues {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.final-clue {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.final-clues button {
+  align-self: flex-end;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+}
+
 @media only screen and (min-width: 481px) and (max-width: 900px) {
   .rooms-container {
     grid-template-areas:
@@ -247,11 +270,19 @@
   .chosen-clues-container {
     margin: 5px auto;
   }
+  .popup {
+    top: 50%;
+    width: 300px;
+  }
 }
 
 @media (min-width: 1024px) {
   .game-container {
     max-width: 500px;
     height: 95vh;
+  }
+
+  .popup {
+    width: 350px;
   }
 }
