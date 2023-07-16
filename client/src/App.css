@@ -147,14 +147,6 @@
   width: 60px;
 }
 
-.guess-button {
-  background-color: lightgray;
-  border: none;
-  border-radius: 15px;
-  font-size: 18px;
-  padding: 10px 10px;
-}
-
 .clues-container,
 .chosen-clues-container {
   align-items: center;

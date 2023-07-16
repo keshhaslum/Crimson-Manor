@@ -75,11 +75,6 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
           )}
 
           <p className="clue-description">{selectedClue?.description}</p>
-          {chosenClues.chosenClues.length === 3 && (
-            <Link to={`/finalpage/`}>
-              <button className="guess-button">Guess 🕵🏼‍♀️</button>
-            </Link>
-          )}
         </div>
 
         <div className="clues-container">
@@ -101,6 +96,11 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
         <button className="next-button" onClick={goToNextRoom}>
           ➡️
         </button>
+      )}
+      {chosenClues.chosenClues.length === 3 && (
+        <Link to={`/finalpage/`}>
+          <button className="next-button guess-button">🕵🏼‍♀️</button>
+        </Link>
       )}
 
       <Suspects className="suspects-container"></Suspects>
