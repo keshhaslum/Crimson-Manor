@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ChosenClues from './ChosenClues';
 import Suspects from './Suspects';
 import { useChosenClues } from '../clues';
@@ -32,11 +32,15 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
     setCurrentClues(clues[roomTracker]);
   }, [roomTracker]);
 
+  const navigate = useNavigate();
+
   const goToPreviousRoom = () => {
-    setRoomTracker((prevRoomTracker) =>
-      prevRoomTracker === 0 ? prevRoomTracker : prevRoomTracker - 1
-    );
-    setSelectedClue(null);
+    if (roomTracker === 0) {
+      navigate('/instructions');
+    } else {
+      setRoomTracker((prevRoomTracker) => prevRoomTracker - 1);
+      setSelectedClue(null);
+    }
   };
 
   const goToNextRoom = () => {
