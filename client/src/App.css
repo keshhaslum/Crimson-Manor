@@ -175,13 +175,23 @@
   flex-flow: column nowrap;
 }
 /* Test */
-.suspects-info button {
+.close-button {
   align-self: flex-end;
   background-color: transparent;
   border: none;
   margin: 0;
   padding: 0;
   width: 20px;
+}
+
+/* Test */
+.guess-button {
+  align-self: center;
+  background-color: #bf5050;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  padding: 10px 15px;
 }
 
 .popup {
@@ -209,15 +219,6 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-}
-
-.final-clues button {
-  align-self: flex-end;
-  background-color: transparent;
-  border: none;
-  margin: 0;
-  padding: 0;
-  width: 20px;
 }
 
 @media only screen and (min-width: 481px) and (max-width: 900px) {
