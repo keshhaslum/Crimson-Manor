@@ -20,11 +20,8 @@ function App() {
           <Route path="/crime" element={<Crime />} />
           <Route path="/scene" element={<Scene />} />
           <Route path="/character" element={<Character />} />
-          <Route path="/instructions" element={<Instructions />} />
-          <Route
-            path="/rooms"
-            element={
-              <>
+          <Route path= "/instructions" element={<Instructions allFakeClues={data.allFakeClues}/>}></Route>
+          <Route path="/rooms" element={<>
                 <Rooms
                   allRooms={data.allRooms}
                   allFakeClues={data.allFakeClues}

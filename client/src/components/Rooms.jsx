@@ -51,8 +51,8 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
   return (
     <div className="rooms-container">
       <ChosenClues />
-      <button onClick={goToPreviousRoom}>Previous Room</button>
-      <div className="current-rrom">
+      <button className="button-instruction-container" onClick={goToPreviousRoom}>Previous Room</button>
+      <div className="current-room">
         <div className="room-name-img">
           <h3>{`${currentRoom.room}${currentRoom.img}`}</h3>
         </div>
@@ -84,10 +84,11 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
           ))}
         </div>
       </div>
-      <button onClick={goToNextRoom}>Next Room</button>
+      <button className="button-instruction-container" onClick={goToNextRoom}>Next Room</button>
       <Link to={`/finalpage/`}>
-        <button>Guess</button>
+        <button className="button-instruction-container">Guess</button>
       </Link>
+
       <Suspects></Suspects>
     </div>
   );
