@@ -13,7 +13,7 @@ router.get('/', async function(req, res, next) {
     
     const results = await db(sql)
     
-    res.json(results);
+    res.send(results);
   } catch (err) {
     console.error('Error retrieving characters:', error);
     res.status(500).json({ error: 'Failed to retrieve characters' });
@@ -28,13 +28,13 @@ router.get('/', async function(req, res, next) {
 
 router.get('/:id', async function(req, res, next) {
   const characterId = req.params.id;
-  const sql = `SELECT id, name, last_name, description, img FROM characters WHERE id = ('${characterId}');`;
+  const sql = `SELECT * FROM characters WHERE id = ('${characterId}');`;
   
   try {
     
     const results = await db(sql)
     
-    res.json(results);
+    res.send(results);
   } catch (err) {
     console.error('Error retrieving character', error);
     res.status(500).json({ error: 'Failed to retrieve characters' });
@@ -45,84 +45,11 @@ router.get('/:id', async function(req, res, next) {
   
 
 
-// GET all clues
-// will deliver: [{id: 0, description: string, img: string}]
-
-router.get('/clues', async function(req, res, next) {
-  const sql = `SELECT * FROM clues;`;
-  
-  try {
-    
-    const results = await db(sql);
-    res.json(results);
-
-  } catch (err) {
-    
-    console.error('Error retrieving clues', error);
-    res.status(500).json({ error: 'Failed to retrieve clues' });
-  }
-
-});
-  
-  
-
-
-// GET clue by ID
-// will deliver: {id: 0, description: string, img: string}
-
-router.get('/clues/:id', async function(req, res, next) {
-  const clueId = req.params.id;
-  const sql = `SELECT * FROM clues WHERE id = ('${req.params.id}');`;
-
-  try {
-    
-    const results = await db(sql);
-    res.json(results);
-
-  } catch (err) {
-    console.error('Error retrieving clue', error);
-    res.status(500).json({ error: 'Failed to retrieve clue' });
-  }
-
-});
 
 
 
-// GET all rooms
-// will deliver: [{id: 0, room: string, description: string, img: string}]
-router.get('/rooms', async function(req, res, next) {
-  const sql = `SELECT * FROM rooms;`;
-
-  try {
-    
-    const results = await db(sql);
-    res.json(results);
-
-  } catch (err) {
-    console.error('Error retrieving rooms', error);
-    res.status(500).json({ error: 'Failed to retrieve rooms' });
-  }
-
-});
 
 
-// GET room by ID
-// will deliver: {id: 0, room: string, description: string, img: string}
-router.get('/rooms/:id', async function(req, res, next) {
-  const roomId = req.params.id;
-  const sql = `SELECT id, room, description, img FROM rooms WHERE id = ('${req.params.id}');`;
-  
-  try {
-    
-    const results = await db(sql);
-    res.json(results);
-
-  } catch (err) {
-    console.error('Error retrieving room', error);
-    res.status(500).json({ error: 'Failed to retrieve room' });
-  }
-  
-});
 
 
 // router.get("/random/:id", async function (req, res) {
