@@ -10,7 +10,7 @@ const allCharacters = [
     img: '👩🏻‍🦰',
   },
   {
-    id: '2',
+    id: 2,
     name: 'Michale',
     last_name: 'Turner',
     description: `Michael is the victim's long-time business rival, always trying to outsmart John in the corporate world. They had a history of bitter competition.`,
@@ -18,7 +18,7 @@ const allCharacters = [
     img: '👨🏻',
   },
   {
-    id: '3',
+    id: 3,
     name: 'Isabella',
     last_name: 'Martínez',
     description: `Isabella is the victim's estranged daughter, who resented her father for prioritizing business over family. They had not spoken for years`,
@@ -110,4 +110,10 @@ const allFakeClues = [
     img: '💙',
   },
 ];
-export default { allRooms, allFakeClues, allMurdererClues, allCharacters };
+export default {
+  allRooms,
+  allFakeClues,
+  allMurdererClues,
+  allCharacters,
+  murderer,
+};
