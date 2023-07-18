@@ -1,0 +1,43 @@
+.homepage-container {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 95vh;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.homepage-container .title {
+  color: #790f0f;
+  font-family: Just Me Again Down Here;
+  font-size: 75px;
+  font-weight: 400;
+  letter-spacing: -1.1px;
+}
+
+.homepage-container .icon {
+  font-size: 200px;
+}
+
+.homepage-container .button {
+  background-color: #bf5050;
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 10px 25px;
+}
+
+@media only screen and (min-width: 481px) and (max-width: 850px) {
+  .homepage-container .title {
+    font-size: 50px;
+  }
+
+  .homepage-container .icon {
+    font-size: 150px;
+  }
+
+  .homepage-container .button {
+    font-size: 20px;
+    padding: 5px 15px;
+  }
+}

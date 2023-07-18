@@ -6,7 +6,7 @@ var ctx2 = canvas2.getContext('2d');
 var ctx3 = canvas3.getContext('2d');
 
 var rainthroughnum = 500;
-var speedRainTrough = 25;
+var speedRainTrough = 5;
 var RainTrough = [];
 
 var rainnum = 500;
