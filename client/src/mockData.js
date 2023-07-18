@@ -74,42 +74,139 @@ const allMurdererClues = [
 
 const allFakeClues = [
   {
-    id: '0',
-    description: 'test clue',
+    id: 1,
+    description: 'A handwritten note mentioning a secret meeting at midnight',
     character_id: 'null',
-    img: '💙',
+    img: '🕛',
   },
   {
-    id: '0',
-    description: 'test clue',
+    id: 2,
+    description: 'A torn business card with an unknown name and phone number',
     character_id: 'null',
-    img: '💙',
+    img: '📇',
   },
   {
-    id: '0',
-    description: 'test clue',
+    id: 3,
+    description: 'An empty vial labeled "Poison"',
     character_id: 'null',
-    img: '💙',
+    img: '☠️',
   },
   {
-    id: '0',
-    description: 'test clue',
+    id: 4,
+    description: 'A receipt from a nearby gun store',
     character_id: 'null',
-    img: '💙',
+    img: '🛒',
   },
   {
-    id: '0',
-    description: 'test clue',
+    id: 5,
+    description:
+      "A hidden compartment in the victim's desk containing a stack of cash",
     character_id: 'null',
-    img: '💙',
+    img: '💰',
   },
   {
-    id: '0',
-    description: 'test clue',
+    id: 6,
+    description: 'A cryptic message written in code',
     character_id: 'null',
-    img: '💙',
+    img: '📝',
+  },
+  {
+    id: 7,
+    description: 'A pair of gloves stained with red ink',
+    character_id: 'null',
+    img: '🧤💉',
+  },
+  {
+    id: 8,
+    description: 'A broken pocket watch, frozen at the time of death',
+    character_id: 'null',
+    img: '⏲️❄️',
+  },
+  {
+    id: 9,
+    description: 'A map of the mansion with a marked X in an unknown location',
+    character_id: 'null',
+    img: '🗺️❓',
+  },
+  {
+    id: 10,
+    description:
+      "A diary entry expressing the victim's fear of someone close to them",
+    character_id: 'null',
+    img: '👥📖',
+  },
+  {
+    id: 11,
+    description: "A rare flower petal found in the victim's pocket",
+    character_id: 'null',
+    img: '🌸',
+  },
+  {
+    id: 12,
+    description:
+      'A torn page from a travel brochure featuring a distant location',
+    character_id: 'null',
+    img: '🗺️🌴',
+  },
+  {
+    id: 13,
+    description: 'A locked safe with an unknown combination',
+    character_id: 'null',
+    img: '🔒❓',
+  },
+  {
+    id: 14,
+    description:
+      'A letter from a mysterious organization demanding a large sum of money',
+    character_id: 'null',
+    img: '💸🔍',
+  },
+  {
+    id: 15,
+    description:
+      'A hidden compartment in the conservatory containing a hidden camera',
+    character_id: 'null',
+    img: '🌿📷',
+  },
+  {
+    id: 16,
+    description: "A torn-up business proposal with the victim's initials on it",
+    character_id: 'null',
+    img: '💼✂️',
+  },
+  {
+    id: 17,
+    description:
+      'A cryptic crossword puzzle with a partially completed solution',
+    character_id: 'null',
+    img: '📝🧩',
+  },
+  {
+    id: 18,
+    description: 'A rare book with a bookmark in a suspicious chapter',
+    character_id: 'null',
+    img: '📚🔍',
+  },
+  {
+    id: 19,
+    description: 'A mysterious key with no discernible purpose',
+    character_id: 'null',
+    img: '🔑❓',
+  },
+  {
+    id: 20,
+    description: 'A torn-up invitation to a secret society gathering',
+    character_id: 'null',
+    img: '🎩🔍',
+  },
+  {
+    id: 21,
+    description: 'A bloodstained handkerchief found in the ballroom',
+    character_id: 'null',
+    img: '💃💔',
   },
 ];
+
 export default {
   allRooms,
   allFakeClues,
