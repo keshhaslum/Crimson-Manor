@@ -1,5 +1,6 @@
 // React
 import { useChosenClues } from '../selectedCluesContext';
+import { useChosenSuspect } from '../selectedSuspectContext';
 import { Link } from 'react-router-dom';
 
 // Styles
@@ -7,6 +8,7 @@ import './styles/modal.css';
 
 export default function Modal({ object, onClose }) {
   const chosenClues = useChosenClues();
+  const chosenSuspect = useChosenSuspect(); // The problem is that this is undefined
 
   const isClue = !object.hasOwnProperty('name');
 
@@ -24,7 +26,14 @@ export default function Modal({ object, onClose }) {
       <p className="description">{object.description}</p>
       {chosenClues.chosenClues.length === 3 && !isClue && (
         <Link className="guess-button" to={`/finalpage/`}>
-          <button className="guess-button">It was you!</button>
+          <button
+            className="guess-button"
+            onClick={() => {
+              chosenSuspect.chooseSuspect(object);
+            }}
+          >
+            It was you!
+          </button>
         </Link>
       )}
     </div>

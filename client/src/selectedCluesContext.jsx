@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useState } from 'react';
 
-const AuthContext = React.createContext();
+const Context = React.createContext();
 
 function SelectedCluesProvider({ children }) {
   const [chosenClues, setChosenClues] = useState([]);
@@ -18,12 +18,13 @@ function SelectedCluesProvider({ children }) {
   };
 
   const clues = { chosenClues, addClues, removeClues };
+  console.log(clues); // This logs the correct object
 
-  return <AuthContext.Provider value={clues}>{children}</AuthContext.Provider>;
+  return <Context.Provider value={clues}>{children}</Context.Provider>;
 }
 
 function useChosenClues() {
-  const clues = useContext(AuthContext);
+  const clues = useContext(Context);
   return clues;
 }
 

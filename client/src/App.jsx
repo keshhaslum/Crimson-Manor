@@ -1,6 +1,7 @@
 // React
 import { Routes, Route, Link } from 'react-router-dom';
 import { SelectedCluesProvider } from './selectedCluesContext';
+import { SelectedSuspectProvider } from './selectedSuspectContext';
 
 // Styles
 import './App.css';
@@ -61,12 +62,16 @@ function App() {
         <Route path="/scene" element={<Scene />} />
         <Route path="/character" element={<Character />} />
         <Route path="/instructions" element={<Instructions />} />
-
-        <Route
-          path="/finalpage"
-          element={<Finalpage murdererId={data.murderer} />}
-        />
       </Routes>
+
+      <SelectedSuspectProvider>
+        <Routes>
+          <Route
+            path="/finalpage"
+            element={<Finalpage murdererId={data.murderer} />}
+          />
+        </Routes>
+      </SelectedSuspectProvider>
     </div>
   );
 }
