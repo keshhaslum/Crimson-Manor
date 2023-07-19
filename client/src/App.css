@@ -6,6 +6,9 @@
 }
 
 .game-container {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 80vh;
   margin: auto;
 }
 

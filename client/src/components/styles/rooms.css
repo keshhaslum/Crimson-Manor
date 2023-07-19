@@ -1,18 +1,23 @@
 .rooms-container {
+  align-self: center;
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   margin: 1.5rem;
+  max-width: 50rem;
 }
 
 .room {
+  align-items: center;
   display: flex;
   flex-flow: row nowrap;
   font-family: Inter;
+  height: 50vh;
 }
 
 .room .info {
+  margin: 7.5rem 0;
   text-align: center;
 }
 
