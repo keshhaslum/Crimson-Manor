@@ -1,10 +1,47 @@
+:root {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  margin: 0;
+  padding: 0;
+}
+
 .game-container {
-  height: 100vh;
   margin: auto;
 }
 
+.component-container {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.title {
+  color: #790f0f;
+  font-family: 'Just Me Again Down Here', cursive;
+  font-size: 4rem;
+}
+
+.icon {
+  font-size: 20rem;
+}
+
+.description {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.6rem;
+}
+
 .button {
-cursor: pointer;  
+  background-color: #bf5050;
+  border: none;
+  border-radius: 2.5rem;
+  color: white;
+  cursor: pointer;  
+  font-size: 2rem;
+  padding: 1rem 2.5rem;
 }
 
 /* .homepage-container,
@@ -167,22 +204,22 @@ cursor: pointer;
   max-width: 500px;
 }
 /* Test */
-.suspects-info {
+/* .suspects-info {
   display: flex;
   flex-flow: column nowrap;
-}
+} */
 /* Test */
-.close-button {
+/* .close-button {
   align-self: flex-end;
   background-color: transparent;
   border: none;
   margin: 0;
   padding: 0;
   width: 20px;
-}
+} */
 
 /* Test */
-.guess-button {
+/* .guess-button {
   align-self: center;
   background-color: #bf5050;
   border-radius: 20px;
@@ -202,9 +239,9 @@ cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   width: 80%;
   z-index: 9999;
-}
+} */
 
-.final-clues {
+/* .final-clues {
   align-items: center;
   display: flex;
   flex-flow: row wrap;
@@ -216,9 +253,9 @@ cursor: pointer;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-}
+} */
 
-@media only screen and (min-width: 481px) and (max-width: 900px) {
+/* @media only screen and (min-width: 481px) and (max-width: 900px) {
   .rooms-container {
     grid-template-areas:
       'suspects-container chosen-clues chosen-clues'
@@ -272,9 +309,9 @@ cursor: pointer;
     top: 50%;
     width: 300px;
   }
-}
+} */
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .game-container {
     max-width: 500px;
     height: 95vh;
@@ -283,4 +320,4 @@ cursor: pointer;
   .popup {
     width: 350px;
   }
-} */
+} */ */

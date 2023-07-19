@@ -1,13 +1,19 @@
-import './App.css';
+// React
 import { Routes, Route, Link } from 'react-router-dom';
+import { CluesProvider } from './clues';
+
+// Styles
+import './App.css';
+
+// Pages
+import Homepage from './components/Homepage';
 import Crime from './components/Crime';
 import Scene from './components/Scene';
 import Character from './components/Character';
 import Instructions from './components/Instructions';
-import Finalpage from './components/Finalpage';
-import Homepage from './components/Homepage';
 import Rooms from './components/Rooms';
-import { CluesProvider } from './clues';
+import Finalpage from './components/Finalpage';
+
 // Temporary
 import data from './mockData';
 
@@ -29,6 +35,7 @@ function App() {
                   allRooms={data.allRooms}
                   allFakeClues={data.allFakeClues}
                   allMurdererClues={data.allMurdererClues}
+                  allCharacters={data.allCharacters}
                 />
               </>
             }

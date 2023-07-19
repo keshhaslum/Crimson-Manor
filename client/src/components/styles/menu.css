@@ -1,0 +1,47 @@
+.menu-container {
+  align-items: center;
+  background-color: #333333;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 5rem;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+.logo-container {
+  width: 13.7rem;
+}
+
+.menu-logo {
+  width: 100%;
+}
+.character-icons {
+  display: flex;
+}
+
+.character {
+  cursor: pointer;
+  font-size: 2rem;
+  margin: 0.8rem;
+}
+
+@media only screen and (max-width: 767px) {
+  /* CSS rules for tablet portrait */
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* CSS rules for tablet landscape */
+}
+
+@media only screen and (min-width: 1025px) {
+  .menu-container {
+    height: 7rem;
+    padding: 0 1.5rem;
+  }
+  .logo-container {
+    width: 27rem;
+  }
+  .character {
+    font-size: 3.5rem;
+    margin: 2.4rem;
+  }
+}

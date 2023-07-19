@@ -1,10 +1,19 @@
-import React, { useEffect, useState } from 'react';
+// React
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import ChosenClues from './ChosenClues';
-import Suspects from './Suspects';
 import { useChosenClues } from '../clues';
 
-export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
+// Components
+import Menu from './Menu';
+import ChosenClues from './ChosenClues';
+import Suspects from './Suspects';
+
+export default function Rooms({
+  allRooms,
+  allFakeClues,
+  allMurdererClues,
+  allCharacters,
+}) {
   const chosenClues = useChosenClues();
 
   const clues = [
@@ -54,7 +63,8 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
 
   return (
     <div className="rooms-container">
-      <ChosenClues />
+      <Menu allCharacters={allCharacters}></Menu>
+      {/* <ChosenClues />
       <button className="prev-button" onClick={goToPreviousRoom}>
         ⬅️
       </button>
@@ -103,7 +113,7 @@ export default function Rooms({ allRooms, allFakeClues, allMurdererClues }) {
         </Link>
       )}
 
-      <Suspects className="suspects-container"></Suspects>
+      <Suspects className="suspects-container"></Suspects> */}
     </div>
   );
 }

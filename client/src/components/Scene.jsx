@@ -1,14 +1,13 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Scene() {
   return (
-    <div className="scene-container">
-      <h1>The scene</h1>
+    <div className="scene component-container">
+      <h1 className="title">The scene</h1>
 
-      <h2>🏠</h2>
+      <h2 className="icon">🏠</h2>
 
-      <p>
+      <p className="description">
         As the heavy iron gates of Crimson Manor swing open with an eerie creak,
         you step into a world frozen in time. The clock strikes midnight, a
         blood-curdling scream pierces the silence. A murder has been committed
@@ -20,7 +19,7 @@ export default function Scene() {
       </p>
 
       <Link to={`/crime/`}>
-        <button className="regular-button">Continue</button>
+        <button className="button">Continue</button>
       </Link>
     </div>
   );
