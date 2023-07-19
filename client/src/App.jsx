@@ -1,6 +1,6 @@
 // React
 import { Routes, Route, Link } from 'react-router-dom';
-import { CluesProvider } from './clues';
+import { SelectedCluesProvider } from './selectedCluesContext';
 
 // Styles
 import './App.css';
@@ -12,7 +12,7 @@ import Scene from './components/Scene';
 import Character from './components/Character';
 import Instructions from './components/Instructions';
 import Rooms from './components/Rooms';
-// import Finalpage from './components/Finalpage';
+import Finalpage from './components/Finalpage';
 
 // Temporary
 import data from './mockData';
@@ -34,17 +34,8 @@ function App() {
 
   return (
     <div className="game-container">
-      <CluesProvider>
+      <SelectedCluesProvider>
         <Routes>
-          <Route
-            path="/"
-            element={<Homepage detectiveInfo={detectiveInfo} />}
-          />
-
-          <Route path="/crime" element={<Crime />} />
-          <Route path="/scene" element={<Scene />} />
-          <Route path="/character" element={<Character />} />
-          <Route path="/instructions" element={<Instructions />} />
           <Route
             path="/rooms"
             element={
@@ -60,12 +51,22 @@ function App() {
               </>
             }
           />
-          {/* <Route
-            path="/finalpage"
-            element={<Finalpage murdererId={data.murderer} />}
-          /> */}
         </Routes>
-      </CluesProvider>
+      </SelectedCluesProvider>
+
+      <Routes>
+        <Route path="/" element={<Homepage detectiveInfo={detectiveInfo} />} />
+
+        <Route path="/crime" element={<Crime />} />
+        <Route path="/scene" element={<Scene />} />
+        <Route path="/character" element={<Character />} />
+        <Route path="/instructions" element={<Instructions />} />
+
+        <Route
+          path="/finalpage"
+          element={<Finalpage murdererId={data.murderer} />}
+        />
+      </Routes>
     </div>
   );
 }

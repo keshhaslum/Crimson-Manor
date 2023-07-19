@@ -1,7 +1,7 @@
 // React
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useChosenClues } from '../clues';
+import { useChosenClues } from '../selectedCluesContext';
 
 // Styles
 import './styles/rooms.css';

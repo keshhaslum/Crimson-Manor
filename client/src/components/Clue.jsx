@@ -1,6 +1,6 @@
 // React
 import { useState } from 'react';
-import { useChosenClues } from '../clues';
+import { useChosenClues } from '../selectedCluesContext';
 
 // Components
 import Modal from './Modal';

@@ -1,5 +1,6 @@
 // React
-import { useChosenClues } from '../clues';
+import { useChosenClues } from '../selectedCluesContext';
+import { Link } from 'react-router-dom';
 
 // Styles
 import './styles/modal.css';
@@ -22,7 +23,9 @@ export default function Modal({ object, onClose }) {
       </p>
       <p className="description">{object.description}</p>
       {chosenClues.chosenClues.length === 3 && !isClue && (
-        <button className="guess-button">It was you!</button>
+        <Link className="guess-button" to={`/finalpage/`}>
+          <button className="guess-button">It was you!</button>
+        </Link>
       )}
     </div>
   );

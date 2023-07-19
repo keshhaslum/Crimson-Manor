@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const AuthContext = React.createContext();
 
-function CluesProvider({ children }) {
+function SelectedCluesProvider({ children }) {
   const [chosenClues, setChosenClues] = useState([]);
 
   const addClues = (clue) => {
@@ -27,4 +27,4 @@ function useChosenClues() {
   return clues;
 }
 
-export { CluesProvider, useChosenClues };
+export { SelectedCluesProvider, useChosenClues };
