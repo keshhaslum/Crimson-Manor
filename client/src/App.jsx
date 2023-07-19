@@ -36,7 +36,11 @@ function App() {
     <div className="game-container">
       <CluesProvider>
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route
+            path="/"
+            element={<Homepage detectiveInfo={detectiveInfo} />}
+          />
+
           <Route path="/crime" element={<Crime />} />
           <Route path="/scene" element={<Scene />} />
           <Route path="/character" element={<Character />} />

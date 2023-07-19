@@ -30,7 +30,7 @@ export default function Menu({ allCharacters, victimInfo, detectiveInfo }) {
               setCurrentCharacter(victimInfo);
             }}
           >
-            {victimInfo.img}
+            {victimInfo?.img}
           </p>
 
           <p
@@ -39,18 +39,18 @@ export default function Menu({ allCharacters, victimInfo, detectiveInfo }) {
               setCurrentCharacter(detectiveInfo);
             }}
           >
-            {detectiveInfo.img}
+            {detectiveInfo?.img}
           </p>
 
           {allCharacters.map((character) => (
             <p
               className="character"
-              key={character.id}
+              key={character?.id}
               onClick={() => {
                 setCurrentCharacter(character);
               }}
             >
-              {character.img}
+              {character?.img}
             </p>
           ))}
         </div>
