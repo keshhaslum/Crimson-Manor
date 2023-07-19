@@ -53,7 +53,8 @@
 
 .scene,
 .crime,
-.character {
+.character,
+.instructions {
   align-self: center;
   max-width: 50rem;
 }
@@ -96,4 +97,20 @@ button {
 
 .step {
   margin: 2rem;
+}
+
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+  .game-container {
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .homepage {
+    margin-top: 15rem;
+  }
+  .component-container {
+    padding-top: 7.5rem;
+  }
 }
