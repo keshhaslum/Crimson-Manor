@@ -18,6 +18,20 @@ import Finalpage from './components/Finalpage';
 import data from './mockData';
 
 function App() {
+  const victimInfo = {
+    name: 'John',
+    last_name: 'Parker',
+    description: `John Parker was a wealthy businessman known for his cutthroat tactics in the corporate world. He was found dead in the study of his luxurious mansion, shot in the head. The murder weapon, a rare antique pistol, was found near the body.`,
+    img: '🤵🏽‍♂️',
+  };
+
+  const detectiveInfo = {
+    name: 'Sarah',
+    last_name: 'Williams',
+    description: `Detective Sarah Williams is a seasoned investigator with a sharp mind and keen attention to detail. She has an impressive track record of solving complex cases and has a reputation for always getting to the truth.`,
+    img: '🕵🏼‍♀️',
+  };
+
   return (
     <div className="game-container">
       <CluesProvider>
@@ -36,6 +50,8 @@ function App() {
                   allFakeClues={data.allFakeClues}
                   allMurdererClues={data.allMurdererClues}
                   allCharacters={data.allCharacters}
+                  victimInfo={victimInfo}
+                  detectiveInfo={detectiveInfo}
                 />
               </>
             }

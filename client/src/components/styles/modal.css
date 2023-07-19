@@ -1,0 +1,54 @@
+.modal-container {
+  background: #444;
+  border-radius: 10px;
+  box-shadow: 5px 5px 4px 3px rgba(0, 0, 0, 0.25);
+  display: grid;
+  flex-flow: column nowrap;
+  flex-shrink: 0;
+  grid-template-areas:
+    'close-icon'
+    'image'
+    'description'
+    'guess-button';
+  height: 350px;
+  left: 50%;
+  padding: 20px;
+  position: fixed;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  z-index: 9999;
+}
+
+.modal-container .close-icon {
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  grid-area: close-icon;
+  justify-self: end;
+}
+
+.modal-container .image {
+  font-size: 7.5rem;
+  grid-area: image;
+  justify-self: center;
+}
+
+.modal-container .description {
+  grid-area: description;
+  text-align: center;
+}
+
+.modal-container .guess-button {
+  background-color: #bf5050;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  grid-area: guess-button;
+  justify-self: center;
+  margin-top: 1.5rem;
+  padding: 10px 15px;
+}

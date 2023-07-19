@@ -13,6 +13,8 @@ export default function Rooms({
   allFakeClues,
   allMurdererClues,
   allCharacters,
+  victimInfo,
+  detectiveInfo,
 }) {
   const chosenClues = useChosenClues();
 
@@ -63,7 +65,11 @@ export default function Rooms({
 
   return (
     <div className="rooms-container">
-      <Menu allCharacters={allCharacters}></Menu>
+      <Menu
+        allCharacters={allCharacters}
+        victimInfo={victimInfo}
+        detectiveInfo={detectiveInfo}
+      ></Menu>
       {/* <ChosenClues />
       <button className="prev-button" onClick={goToPreviousRoom}>
         ⬅️

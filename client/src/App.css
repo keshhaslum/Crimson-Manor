@@ -218,29 +218,6 @@
   width: 20px;
 } */
 
-/* Test */
-/* .guess-button {
-  align-self: center;
-  background-color: #bf5050;
-  border-radius: 20px;
-  border: none;
-  color: white;
-  padding: 10px 15px;
-}
-
-.popup {
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  width: 80%;
-  z-index: 9999;
-} */
-
 /* .final-clues {
   align-items: center;
   display: flex;
