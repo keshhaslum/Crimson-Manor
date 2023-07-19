@@ -52,3 +52,9 @@
   margin-top: 1.5rem;
   padding: 10px 15px;
 }
+
+.modal-container .circular-button {
+  font-size: 3.5rem;
+  height: 13.5rem;
+  width: 13.5rem;
+}
