@@ -44,6 +44,12 @@
   padding: 1rem 2.5rem;
 }
 
+button {
+    background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 /* .homepage-container,
 .scene-container,
 .crime-container,
@@ -57,17 +63,7 @@
   width: 100%;
 } */
 
-/* .rooms-container {
-  align-items: center;
-  display: grid;
-  grid-template-areas:
-    'chosen-clues chosen-clues chosen-clues'
-    'prev-button room-info next-button'
-    'selected-clue selected-clue selected-clue'
-    'clues-container clues-container clues-container'
-    'suspects-container suspects-container suspects-container';
-  justify-content: center;
-} */
+
 /* 
 .chosen-clues-container {
   grid-area: chosen-clues;

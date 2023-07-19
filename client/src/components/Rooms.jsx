@@ -3,10 +3,13 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useChosenClues } from '../clues';
 
+// Styles
+import './styles/rooms.css';
+
 // Components
 import Menu from './Menu';
+import Clue from './Clue';
 import ChosenClues from './ChosenClues';
-import Suspects from './Suspects';
 
 export default function Rooms({
   allRooms,
@@ -64,62 +67,71 @@ export default function Rooms({
   };
 
   return (
-    <div className="rooms-container">
+    <>
       <Menu
         allCharacters={allCharacters}
         victimInfo={victimInfo}
         detectiveInfo={detectiveInfo}
       ></Menu>
-      {/* <ChosenClues />
-      <button className="prev-button" onClick={goToPreviousRoom}>
-        ⬅️
-      </button>
-      <div className="current-room">
-        <div className="room-info">
-          <h3>{`${currentRoom.room}${currentRoom.img}`}</h3>
-          <p>{currentRoom.description}</p>
-        </div>
 
-        <div
-          className="selected-clue"
-          onClick={() => {
-            chosenClues.addClues(selectedClue);
-          }}
-        >
-          {selectedClue && (
-            <p className="circular-button">{selectedClue?.img}</p>
-          )}
+      <div className="rooms-container">
+        <ChosenClues />
 
-          <p className="clue-description">{selectedClue?.description}</p>
-        </div>
-      </div>
+        <div className="room">
+          <button className="prev-button" onClick={goToPreviousRoom}>
+            ⬅️
+          </button>
+          <div className="info">
+            <h3>{`${currentRoom.room}${currentRoom.img}`}</h3>
+            <p>{currentRoom.description}</p>
+          </div>
 
-      <div className="clues-container">
-        {currentClues.clues.map((clue, index) => (
-          <div
-            className="circular-button"
-            key={`clue${index}`}
+          {/* <div
+            className="selected-clue"
             onClick={() => {
-              setSelectedClue(clue);
+              chosenClues.addClues(selectedClue);
             }}
           >
-            <p>{clue.img}</p>
-          </div>
-        ))}
+            {selectedClue && (
+              <p className="circular-button">{selectedClue?.img}</p>
+            )}
+
+            <p className="clue-description">{selectedClue?.description}</p>
+          </div> */}
+
+          {roomTracker <= 1 && roomTracker !== 3 && (
+            <button className="next-button" onClick={goToNextRoom}>
+              ➡️
+            </button>
+          )}
+
+          {/* {chosenClues.chosenClues.length === 3 && roomTracker == 2 && (
+            <Link className="next-button" to={`/finalpage/`}>
+              <button className="next-button">🕵🏼‍♀️</button>
+            </Link>
+          )} */}
+        </div>
+
+        <div className="clues-container">
+          {currentClues.clues.map((clue, index) => (
+            <Clue key={`clue${index}`} clue={clue} />
+          ))}
+        </div>
+
+        {/* <div className="clues-container">
+          {currentClues.clues.map((clue, index) => (
+            <div
+              className="circular-button"
+              key={`clue${index}`}
+              onClick={() => {
+                setSelectedClue(clue);
+              }}
+            >
+              <p>{clue.img}</p>
+            </div>
+          ))}
+        </div> */}
       </div>
-
-      {roomTracker <= 1 && (
-        <button className="next-button" onClick={goToNextRoom}>
-          ➡️
-        </button>
-      )}
-      {chosenClues.chosenClues.length === 3 && roomTracker == 2 && (
-        <Link className="next-button" to={`/finalpage/`}>
-          <button className="next-button">🕵🏼‍♀️</button>
-        </Link>
-      )}
-
-      <Suspects className="suspects-container"></Suspects> */}
-    </div>
+    </>
   );
 }

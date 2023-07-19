@@ -12,7 +12,7 @@ import Scene from './components/Scene';
 import Character from './components/Character';
 import Instructions from './components/Instructions';
 import Rooms from './components/Rooms';
-import Finalpage from './components/Finalpage';
+// import Finalpage from './components/Finalpage';
 
 // Temporary
 import data from './mockData';
@@ -56,10 +56,10 @@ function App() {
               </>
             }
           />
-          <Route
+          {/* <Route
             path="/finalpage"
             element={<Finalpage murdererId={data.murderer} />}
-          />
+          /> */}
         </Routes>
       </CluesProvider>
     </div>
