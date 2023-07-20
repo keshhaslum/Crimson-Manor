@@ -11,7 +11,6 @@ function SelectedSuspectProvider({ children }) {
   };
 
   const suspect = { chosenSuspect, chooseSuspect };
-  console.log(suspect); // This logs the correct object
 
   return <Context.Provider value={suspect}>{children}</Context.Provider>;
 }

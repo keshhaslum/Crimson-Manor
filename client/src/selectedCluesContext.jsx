@@ -18,7 +18,6 @@ function SelectedCluesProvider({ children }) {
   };
 
   const clues = { chosenClues, addClues, removeClues };
-  console.log(clues); // This logs the correct object
 
   return <Context.Provider value={clues}>{children}</Context.Provider>;
 }

@@ -22,7 +22,8 @@
 }
 
 .title {
-  color: #790f0f;
+  /* color: #790f0f; */
+  color: #bc1f1f;
   font-family: 'Just Me Again Down Here', cursive;
   font-size: 4rem;
 }
@@ -54,7 +55,8 @@
 .scene,
 .crime,
 .character,
-.instructions {
+.instructions,
+.finalpage {
   align-self: center;
   max-width: 50rem;
 }
@@ -69,6 +71,10 @@
 
 .character .description {
   margin: 2rem 0;
+}
+
+.finalpage .description {
+  margin: 0rem 3rem;
 }
 
 .button {

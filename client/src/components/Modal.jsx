@@ -8,7 +8,7 @@ import './styles/modal.css';
 
 export default function Modal({ object, onClose }) {
   const chosenClues = useChosenClues();
-  const chosenSuspect = useChosenSuspect(); // The problem is that this is undefined
+  const chosenSuspect = useChosenSuspect();
 
   const isClue = !object.hasOwnProperty('name');
 
@@ -24,18 +24,20 @@ export default function Modal({ object, onClose }) {
         {object.img}
       </p>
       <p className="description">{object.description}</p>
-      {chosenClues.chosenClues.length === 3 && !isClue && (
-        <Link className="guess-button" to={`/finalpage/`}>
-          <button
-            className="guess-button"
-            onClick={() => {
-              chosenSuspect.chooseSuspect(object);
-            }}
-          >
-            It was you!
-          </button>
-        </Link>
-      )}
+      {chosenClues.chosenClues.length === 3 &&
+        !isClue &&
+        object.hasOwnProperty('what_happened') && (
+          <Link className="guess-button" to={`/finalpage/`}>
+            <button
+              className="guess-button"
+              onClick={() => {
+                chosenSuspect.chooseSuspect(object);
+              }}
+            >
+              It was you!
+            </button>
+          </Link>
+        )}
     </div>
   );
 }
