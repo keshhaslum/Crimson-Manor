@@ -40,6 +40,7 @@ export default function Rooms({
 
   useEffect(() => {
     setCurrentRoom(allRooms[roomTracker]);
+    setCurrentClues(clues[roomTracker]);
   }, [roomTracker]);
 
   const navigate = useNavigate();
