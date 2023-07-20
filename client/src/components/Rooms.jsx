@@ -19,7 +19,7 @@ export default function Rooms({
   victimInfo,
   detectiveInfo,
 }) {
-  const chosenClues = useChosenClues();
+  // const chosenClues = useChosenClues();
 
   const clues = [
     {
@@ -39,11 +39,11 @@ export default function Rooms({
   const [roomTracker, setRoomTracker] = useState(0);
   const [currentRoom, setCurrentRoom] = useState(allRooms[0]);
   const [currentClues, setCurrentClues] = useState(clues[0]);
-  const [selectedClue, setSelectedClue] = useState(null);
+  // const [selectedClue, setSelectedClue] = useState(null);
 
   useEffect(() => {
     setCurrentRoom(allRooms[roomTracker]);
-    setCurrentClues(clues[roomTracker]);
+    // setCurrentClues(clues[roomTracker]);
   }, [roomTracker]);
 
   const navigate = useNavigate();
@@ -53,7 +53,6 @@ export default function Rooms({
       navigate('/instructions');
     } else {
       setRoomTracker((prevRoomTracker) => prevRoomTracker - 1);
-      setSelectedClue(null);
     }
   };
 
@@ -63,7 +62,6 @@ export default function Rooms({
         ? prevRoomTracker
         : prevRoomTracker + 1
     );
-    setSelectedClue(null);
   };
 
   return (

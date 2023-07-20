@@ -36,42 +36,38 @@ function App() {
   return (
     <div className="game-container">
       <SelectedCluesProvider>
-        <Routes>
-          <Route
-            path="/rooms"
-            element={
-              <>
-                <Rooms
-                  allRooms={data.allRooms}
-                  allFakeClues={data.allFakeClues}
-                  allMurdererClues={data.allMurdererClues}
-                  allCharacters={data.allCharacters}
-                  victimInfo={victimInfo}
-                  detectiveInfo={detectiveInfo}
-                />
-              </>
-            }
-          />
-        </Routes>
+        <SelectedSuspectProvider>
+          <Routes>
+            <Route
+              path="/rooms"
+              element={
+                <>
+                  <Rooms
+                    allRooms={data.allRooms}
+                    allFakeClues={data.allFakeClues}
+                    allMurdererClues={data.allMurdererClues}
+                    allCharacters={data.allCharacters}
+                    victimInfo={victimInfo}
+                    detectiveInfo={detectiveInfo}
+                  />
+                </>
+              }
+            />
+            <Route
+              path="/"
+              element={<Homepage detectiveInfo={detectiveInfo} />}
+            />
+            <Route path="/crime" element={<Crime />} />
+            <Route path="/scene" element={<Scene />} />
+            <Route path="/character" element={<Character />} />
+            <Route path="/instructions" element={<Instructions />} />
+            <Route
+              path="/finalpage"
+              element={<Finalpage murdererId={data.murderer} />}
+            />
+          </Routes>
+        </SelectedSuspectProvider>
       </SelectedCluesProvider>
-
-      <Routes>
-        <Route path="/" element={<Homepage detectiveInfo={detectiveInfo} />} />
-
-        <Route path="/crime" element={<Crime />} />
-        <Route path="/scene" element={<Scene />} />
-        <Route path="/character" element={<Character />} />
-        <Route path="/instructions" element={<Instructions />} />
-      </Routes>
-
-      <SelectedSuspectProvider>
-        <Routes>
-          <Route
-            path="/finalpage"
-            element={<Finalpage murdererId={data.murderer} />}
-          />
-        </Routes>
-      </SelectedSuspectProvider>
     </div>
   );
 }
