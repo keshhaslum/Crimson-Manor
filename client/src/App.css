@@ -114,7 +114,7 @@ button {
 
 @media only screen and (min-width: 1025px) {
   .homepage {
-    margin-top: 15rem;
+    margin-top: 10rem;
   }
   .component-container {
     padding-top: 7.5rem;

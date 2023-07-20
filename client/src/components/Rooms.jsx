@@ -19,8 +19,6 @@ export default function Rooms({
   victimInfo,
   detectiveInfo,
 }) {
-  // const chosenClues = useChosenClues();
-
   const clues = [
     {
       room: 'room1',
@@ -39,11 +37,9 @@ export default function Rooms({
   const [roomTracker, setRoomTracker] = useState(0);
   const [currentRoom, setCurrentRoom] = useState(allRooms[0]);
   const [currentClues, setCurrentClues] = useState(clues[0]);
-  // const [selectedClue, setSelectedClue] = useState(null);
 
   useEffect(() => {
     setCurrentRoom(allRooms[roomTracker]);
-    // setCurrentClues(clues[roomTracker]);
   }, [roomTracker]);
 
   const navigate = useNavigate();

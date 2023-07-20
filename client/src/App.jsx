@@ -1,5 +1,5 @@
 // React
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { SelectedCluesProvider } from './selectedCluesContext';
 import { SelectedSuspectProvider } from './selectedSuspectContext';
 
