@@ -9,6 +9,7 @@ const indexRouter = require('./routes/index');
 const charactersRouter = require('./routes/characters');
 const cluesRouter = require('./routes/clues'); 
 const roomsRouter = require('./routes/rooms'); 
+const randomRouter = require('./routes/random');
 
 const app = express();
 
@@ -22,5 +23,6 @@ app.use('/', indexRouter);
 app.use('/api/characters', charactersRouter);
 app.use('/api/clues', cluesRouter); 
 app.use('/api/rooms', roomsRouter);
+app.use('/api/random', randomRouter);
 
 module.exports = app;
