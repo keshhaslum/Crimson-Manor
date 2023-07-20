@@ -1,15 +1,18 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import '../App.css';
 
-export default function Homepage() {
+export default function Homepage({ detectiveInfo }) {
   return (
-    <div className="homepage-container">
-      <h1>Crimson Manor</h1>
-      <h2>🕵️‍♀️</h2>
-      <p>Solve the murder mystery</p>
+    <div className="homepage component-container">
+      <img
+        className="logo-homepage"
+        src="https://cdn.bfldr.com/Z0BJ31FP/at/k84gx4pxhs6tkrntkzpjf4n/crimson-manor-logo.svg"
+        alt="Crimson Manor Logo"
+      />
+      <h2 className="icon">{detectiveInfo.img}</h2>
 
       <Link to={`/scene/`}>
-        <button className="regular-button">Start</button>
+        <button className="button">Start</button>
       </Link>
     </div>
   );

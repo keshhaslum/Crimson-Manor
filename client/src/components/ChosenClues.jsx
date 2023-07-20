@@ -1,5 +1,9 @@
+// React
 import React, { useEffect, useState } from 'react';
-import { useChosenClues } from '../clues';
+import { useChosenClues } from '../selectedCluesContext';
+
+// Styles
+import './styles/chosen-clues.css';
 
 export default function ChosenClues() {
   const cluesProvider = useChosenClues();
