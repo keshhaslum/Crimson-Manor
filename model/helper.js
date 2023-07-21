@@ -16,8 +16,9 @@ module.exports = async function db(query) {
       host: DB_HOST || "5000",
       user: DB_USER || "root",
       password: DB_PASS,
-      database: DB_NAME || "murderMystery",
-      multipleStatements: true
+      database: DB_NAME || 'murderMystery',
+      charset: 'utf8mb4',
+      multipleStatements: true,
     });
 
     con.connect(function(err) {
