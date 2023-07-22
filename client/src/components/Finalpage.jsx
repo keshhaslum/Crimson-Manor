@@ -1,116 +1,29 @@
-import React from 'react';
 import { useState } from 'react';
-import data from '../mockData';
-
-import Suspects from './Suspects';
-import { useChosenClues } from '../clues';
 import { Link } from 'react-router-dom';
 
-export default function Finalpage({ murdererId }) {
-  const chosenClues = useChosenClues();
-  const [selectedClue, setSelectedClue] = useState(null);
-  const allCharacters = data.allCharacters;
-  const [currentCharacter, setCurrentCharacter] = useState(null);
-  const [guessedMurderer, setGuessedMurderer] = useState(null);
+import data from '../mockData';
+import { useChosenSuspect } from '../selectedSuspectContext';
+import ChosenClues from './ChosenClues';
 
-  const guessMurderer = (suspect) => {
-    setGuessedMurderer(suspect);
-  };
+export default function Finalpage({ murdererId }) {
+  const chosenSuspect = useChosenSuspect();
+
+  const detectiveJobMessage =
+    murdererId === chosenSuspect?.chosenSuspect.id
+      ? 'Amazing detective job!'
+      : 'Oh no! The murderer escaped!';
 
 
   //getallfakeclues by id
   //getallmurdererclues by id
   return (
-    <>
-      {!guessedMurderer && (
-        <div className="case-info">
-          <h2>The crime</h2>
-
-          <h3>🤵</h3>
-          <p>
-            John Parker was a wealthy businessman known for his cutthroat
-            tactics in the corporate world. He was found dead in the study of
-            his luxurious mansion, shot in the head. The murder weapon, a rare
-            antique pistol, was found near the body.
-          </p>
-          <h2>Your Clues</h2>
-          <div className="final-clues">
-            {chosenClues.chosenClues.map((clue) => (
-              <div
-                className="final-clue"
-                key={`clue${clue.id}`}
-                onClick={() => {
-                  setSelectedClue(clue);
-                }}
-              >
-                <p className="circular-button">{clue.img}</p>
-              </div>
-            ))}
-            {selectedClue && (
-              <div className="popup">
-                <button
-                  className="close-button"
-                  onClick={() => {
-                    setSelectedClue(null);
-                  }}
-                >
-                  ❎
-                </button>
-                <h3>{selectedClue?.img}</h3>
-                <p>{selectedClue?.description}</p>
-              </div>
-            )}
-          </div>
-          <h2>The Suspects</h2>
-          <h3>Who committed the crime?</h3>
-          <div className="suspects-container">
-            <div className="suspects-buttons">
-              {allCharacters.map((character) => (
-                <div
-                  className="circular-button"
-                  key={character.id}
-                  onClick={() => {
-                    setCurrentCharacter(character);
-                  }}
-                >
-                  {character.img}
-                </div>
-              ))}
-            </div>
-            {currentCharacter && (
-              <div className="suspects-info popup">
-                <button
-                  className="close-button"
-                  onClick={() => {
-                    setCurrentCharacter(null);
-                  }}
-                >
-                  ❎
-                </button>
-                <h3>{`${currentCharacter?.img} ${currentCharacter?.name} ${currentCharacter?.last_name}`}</h3>
-                <p>{currentCharacter?.description}</p>
-                <button
-                  onClick={() => guessMurderer(currentCharacter)}
-                  className="guess-button"
-                >
-                  It was you!
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-      {guessedMurderer && (
-        <div>
-          {murdererId === guessedMurderer?.id ? (
-            <p>Great Job!</p>
-          ) : (
-            <p>Oh no! You let the murderer escape!</p>
-          )}
-          <h3>What Happened</h3>
-          <p>{guessedMurderer?.what_happened}</p>
-        </div>
-      )}
-    </>
+    <div className="finalpage component-container">
+      <h2 className="title">{detectiveJobMessage}</h2>
+      <p className="icon">{chosenSuspect.chosenSuspect.img}</p>
+      <p className="description">{chosenSuspect.chosenSuspect.what_happened}</p>
+      <Link to={`/`}>
+        <button className="button">Play again</button>
+      </Link>
+    </div>
   );
 }

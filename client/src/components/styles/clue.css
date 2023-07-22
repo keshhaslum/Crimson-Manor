@@ -1,0 +1,18 @@
+.circular-button {
+  align-items: center;
+  border-radius: 100%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  fill: radial-gradient(
+    65.84% 65.84% at 45.77% 67.61%,
+    #464646 92.71%,
+    #352929 100%
+  );
+  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.25));
+  font-size: 1.5rem;
+  height: 60px;
+  justify-content: center;
+  margin: 5px 10px;
+  width: 60px;
+}

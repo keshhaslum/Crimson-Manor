@@ -1,47 +1,44 @@
-import React from 'react';
+// React
 import { Link } from 'react-router-dom';
-import Suspects from './Suspects';
+import { useState } from 'react';
+// Components
+import Modal from './Modal';
+import Menu from './Menu';
 
-
-export default function Instructions({allFakeClues}) {
- 
-  const clues = [
-    { clues: [allFakeClues[0], allFakeClues[1], allFakeClues[2]]}
-   ];
+export default function Instructions() {
+  const [sampleClue] = useState({
+    id: 2,
+    description: 'A torn business card with an unknown name and phone number',
+    character_id: 'null',
+    img: '📇',
+  });
 
   return (
-    <div className="instructions-container">
-      <h1>Game Instructions</h1>
+    <>
+      <div className=" instructions component-container">
+        <h1 className="title">Game Instructions</h1>
+        <ol className="steps-container">
+          <li className="step">
+            Click on the character icons to view their information at any time.
+          </li>
+          <li className="step">Navigate through the rooms to find clues.</li>
+          <li className="step">
+            Click on the clues to read their descriptions.
+          </li>
+          <li className="step">
+            If you believe a clue is relevant, click the button to add it to the
+            list at the top of the screen.
+          </li>
+          <li className="step">
+            Once you have three clues, click on the suspect you believe is
+            guilty and make your guess.
+          </li>
+        </ol>
 
-      <div className ="room-clues-container-example">Your chosen clues will be stored here</div>
-
-      <div>Click on each clue for more information.
-        When you have decided, add the clue so it is stored.
+        <Link to={`/rooms/`}>
+          <button className="button">Good luck</button>
+        </Link>
       </div>
-      
-      <div className="clues-container">
-        {allFakeClues.map((clue, index) => (
-        <div className="circular-button">
-         <p>{clue.img}</p>
-         <p>{clue.id}</p>
-         </div>
-
-        ))}
-            
-
-      </div>
-   
-      These are your 3 suspects.
-      Click on each suspect for more information.
-      <Suspects></Suspects>
-
-      <Link to={`/character/`}>
-        <button className="prev-button">⬅️</button>
-      </Link>
-
-      <Link to={`/rooms/`}>
-        <button className="next-button">➡️</button>
-      </Link>
-    </div>
+    </>
   );
 }

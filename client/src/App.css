@@ -1,290 +1,123 @@
+:root {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  margin: 0;
+  padding: 0;
+}
+
 .game-container {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 80vh;
+  margin: auto;
+}
+
+.component-container {
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
-  font-family: 'Inter', sans-serif;
-  justify-content: center;
-  margin: auto;
-  /* max-width: 500px; */
+  height: 100vh;
+  justify-content: flex-start;
   text-align: center;
 }
 
-.homepage-container,
-.scene-container,
-.crime-container,
-.character-container,
-.instructions-container {
-  align-items: center;
-  display: flex;
-  flex-flow: column nowrap;
-  height: inherit;
-  justify-content: space-between;
-  width: 100%;
-}
-.rooms-container {
-  /* background-color: turquoise; */
-  align-items: center;
-  display: grid;
-  grid-template-areas:
-    'chosen-clues chosen-clues chosen-clues'
-    'prev-button room-info next-button'
-    'selected-clue selected-clue selected-clue'
-    'clues-container clues-container clues-container'
-    'suspects-container suspects-container suspects-container';
-  justify-content: center;
-}
-
-.chosen-clues-container {
-  grid-area: chosen-clues;
-}
-
-.prev-button {
-  grid-area: prev-button;
-}
-
-.room-info {
-  /* background-color: lightgreen; */
-  align-items: center;
-  display: flex;
-  flex-flow: column nowrap;
-  grid-area: room-info;
-  height: 20vh;
-  justify-content: center;
-}
-
-.next-button {
-  grid-area: next-button;
-}
-
-.prev-button,
-.next-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 25px;
-  height: 30px;
-  margin: 0;
-  padding: 0;
-  width: 30px;
-}
-
-.selected-clue {
-  align-items: center;
-  display: flex;
-  flex-flow: column nowrap;
-  grid-area: selected-clue;
-  height: 25vh;
-  justify-content: center;
-  width: 100%;
-}
-
-.clues-container {
-  grid-area: clues-container;
-}
-
-.suspects-container {
-  grid-area: suspects-container;
-}
-
-.current-room {
-  align-items: center;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-}
-
-.homepage-container h1,
-.scene-container h1,
-.crime-container h1,
-.character-container h1,
-.instructions-container h1 {
+.title {
+  /* color: #790f0f; */
+  color: #bc1f1f;
   font-family: 'Just Me Again Down Here', cursive;
-  font-size: 50px;
-  color: #790f0f;
+  font-size: 4rem;
 }
 
-.homepage-container h2,
-.scene-container h2,
-.crime-container h2,
-.character-container h2,
-.instructions-container h2 {
-  font-size: 200px;
-  line-height: 100%;
-  margin: 0;
-  padding: 0;
+.icon {
+  font-size: 15rem;
+  margin: 2rem 0;
 }
 
-.homepage-container p,
-.scene-container p,
-.crime-container p,
-.character-container p {
-  font-size: 20px;
+.description {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.6rem;
 }
 
-.regular-button {
+.homepage {
+  align-self: center;
+  justify-content: center;
+  margin-top: 5rem;
+  margin-top: 5rem;
+  max-width: 7.5rem;
+}
+
+.homepage .icon {
+  font-size: 20rem;
+  margin: 5rem 0;
+}
+
+.scene,
+.crime,
+.character,
+.instructions,
+.finalpage {
+  align-self: center;
+  max-width: 50rem;
+}
+
+.scene .description {
+  margin: 2rem 0;
+}
+
+.crime .description {
+  margin: 2rem 0;
+}
+
+.character .description {
+  margin: 2rem 0;
+}
+
+.finalpage .description {
+  margin: 0rem 3rem;
+}
+
+.button {
   background-color: #bf5050;
   border: none;
+  border-radius: 2.5rem;
   color: white;
   cursor: pointer;
-  height: 60px;
-  font-size: 30px;
-  padding: 0 15px;
-  width: 175px;
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  padding: 1rem 2.5rem;
 }
 
-.circular-button {
-  align-items: center;
-  background-color: white;
-  border: 1px solid #f9f3f3;
-  border-radius: 100%;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  display: flex;
-  height: 60px;
-  justify-content: center;
-  margin: 5px 10px;
-  width: 60px;
-}
-
-.clues-container,
-.chosen-clues-container {
-  align-items: center;
-  border-radius: 15px;
-  border: 1px solid #e7e7e7;
-  background: #fff;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-flow: row nowrap;
-  height: 70px;
-  justify-content: center;
-  margin: 15px auto;
-  width: 250px;
-}
-
-.suspects-buttons {
-  align-items: center;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  margin: auto;
-  max-width: 500px;
-}
-/* Test */
-.suspects-info {
-  display: flex;
-  flex-flow: column nowrap;
-}
-/* Test */
-.close-button {
-  align-self: flex-end;
+button {
   background-color: transparent;
   border: none;
-  margin: 0;
-  padding: 0;
-  width: 20px;
+  cursor: pointer;
 }
 
-/* Test */
-.guess-button {
-  align-self: center;
-  background-color: #bf5050;
-  border-radius: 20px;
-  border: none;
+.steps-container {
   color: white;
-  padding: 10px 15px;
+  font-family: Inter;
+  font-size: 1.8rem;
+  margin: 2rem 4rem;
 }
 
-.popup {
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  width: 80%;
-  z-index: 9999;
+.step {
+  margin: 2rem;
 }
 
-.final-clues {
-  align-items: center;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-}
-
-.final-clue {
-  align-items: center;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-}
-
-@media only screen and (min-width: 481px) and (max-width: 900px) {
-  .rooms-container {
-    grid-template-areas:
-      'suspects-container chosen-clues chosen-clues'
-      'suspects-container room-info selected-clue'
-      'prev-button clues-container next-button';
-  }
-
-  .current-room {
-    align-items: center;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-  }
-
-  .room-info {
-    /* background-color: lightgreen; */
-    align-items: center;
-    display: flex;
-    flex-flow: column nowrap;
-    grid-area: room-info;
-    height: auto;
-    justify-content: center;
-    width: 50%;
-  }
-  .selected-clue {
-    align-items: center;
-    display: flex;
-    flex-flow: column nowrap;
-    grid-area: selected-clue;
-    height: 50vh;
-    justify-content: center;
-    width: 50%;
-  }
-  .suspects-container {
-    align-self: flex-start;
-  }
-  .suspects-buttons {
-    align-items: center;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-    margin: auto;
-    max-width: 500px;
-  }
-
-  .clues-container,
-  .chosen-clues-container {
-    margin: 5px auto;
-  }
-  .popup {
-    top: 50%;
-    width: 300px;
-  }
-}
-
-@media (min-width: 1024px) {
+@media only screen and (max-width: 900px) and (orientation: landscape) {
   .game-container {
-    max-width: 500px;
-    height: 95vh;
+    height: 100vh;
+    width: 100vw;
   }
+}
 
-  .popup {
-    width: 350px;
+@media only screen and (min-width: 1025px) {
+  .homepage {
+    margin-top: 10rem;
+  }
+  .component-container {
+    padding-top: 7.5rem;
   }
 }
 
