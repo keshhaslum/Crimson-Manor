@@ -14,11 +14,11 @@ export default function Character() {
       </p>
 
       <Link to={`/crime/`}>
-        <button className="regular-button">Previous</button>
+        <button className="prev-button">⬅️</button>
       </Link>
 
       <Link to={`/instructions/`}>
-        <button className="regular-button">Next</button>
+        <button className="next-button">➡️</button>
       </Link>
     </div>
   );

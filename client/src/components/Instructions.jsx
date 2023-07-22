@@ -19,10 +19,10 @@ export default function Instructions({allFakeClues}) {
         When you have decided, add the clue so it is stored.
       </div>
       
-      <div className="room-clues-container">
+      <div className="clues-container">
         {allFakeClues.map((clue, index) => (
         <div className="circular-button">
-         <img src={clue.img}/>
+         <p>{clue.img}</p>
          <p>{clue.id}</p>
          </div>
 
@@ -36,11 +36,11 @@ export default function Instructions({allFakeClues}) {
       <Suspects></Suspects>
 
       <Link to={`/character/`}>
-        <button className="regular-button">Previous</button>
+        <button className="prev-button">⬅️</button>
       </Link>
 
       <Link to={`/rooms/`}>
-        <button className="regular-button">Next</button>
+        <button className="next-button">➡️</button>
       </Link>
     </div>
   );

@@ -15,11 +15,11 @@ export default function Crime() {
       </p>
 
       <Link to={`/scene/`}>
-        <button className="regular-button">Previous</button>
+        <button className="prev-button">⬅️</button>
       </Link>
 
       <Link to={`/character/`}>
-        <button className="regular-button">Next</button>
+        <button className="next-button">➡️</button>
       </Link>
     </div>
   );

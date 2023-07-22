@@ -8,7 +8,7 @@ export default function Scene() {
 
       <h2>🏠</h2>
 
-      <p>
+      <h5>
         As the heavy iron gates of Crimson Manor swing open with an eerie creak,
         you step into a world frozen in time. The clock strikes midnight, a
         blood-curdling scream pierces the silence. A murder has been committed
@@ -17,8 +17,13 @@ export default function Scene() {
         treacherous halls, unravel the truth, and expose the killer before the
         night's end? The stage is set, and the game of life and death begins in
         Crimson Manor.
-      </p>
+      </h5>
+      
+      <Link to={`/`}>
+        <button className="regular-button">Previous</button>
+      </Link>
 
+    
       <Link to={`/crime/`}>
         <button className="regular-button">Continue</button>
       </Link>

@@ -1,33 +1,27 @@
 require("dotenv").config();
+const fs = require("fs");
 const mysql = require("mysql");
-
-const DB_HOST = process.env.DB_HOST;
-const DB_USER = process.env.DB_USER;
-const DB_PASS = process.env.DB_PASS;
-const DB_NAME = process.env.DB_NAME;
-
-console.log("DB_PASS: ", DB_PASS);
+const DB_HOST = process.env.DB_HOST || "localhost";
+const DB_USER = process.env.DB_USER || "root";
+const DB_PASS = process.env.DB_PASS || "";
+const DB_NAME = process.env.DB_NAME || "murderMystery";
 const con = mysql.createConnection({
-  host: DB_HOST || "127.0.0.1",
-  user: DB_USER || "root",
-  password: DB_PASS || "London2023",
-  database: DB_NAME || "facebook",
-  port: 3306,
-  multipleStatements: true
+  host: DB_HOST,
+  user: DB_USER,
+  password: DB_PASS,
+  database: DB_NAME,
+  charset: "utf8mb4",
+  multipleStatements: true,
 });
-
-con.connect(function(err) {
+con.connect(function (err) {
   if (err) throw err;
-  console.log("Connected!");
-
-  let sql =
-    "DROP TABLE if exists students; CREATE TABLE students(id INT NOT NULL AUTO_INCREMENT, firstname VARCHAR(40) not null, lastname VARCHAR(40) not null, PRIMARY KEY (id));";
-  con.query(sql, function(err, result) {
+  console.log(process.cwd());
+  const initDBScript = fs.readFileSync("model/init_db.sql", "utf8");
+  con.query(initDBScript, function (err, result) {
     if (err) throw err;
-    console.log("Table creation `students` was successful!");
-
-    console.log("Closing...");
+    console.log("Tables created and data populated successfully!");
+    console.log("Closing the database connection...");
+    con.end();
   });
-
-  con.end();
 });
+

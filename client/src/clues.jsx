@@ -6,11 +6,21 @@ const AuthContext = React.createContext();
 function CluesProvider({ children }) {
   const [chosenClues, setChosenClues] = useState([]);
 
-  const updateClues = (clue) => {
+  //getallfakeclues
+  //getallmurdererclues
+
+  const addClues = (clue) => {
+    if (chosenClues.length >= 3) {
+      return;
+    }
     setChosenClues((prevClues) => [...prevClues, clue]);
   };
 
-  const clues = { chosenClues, updateClues };
+  const removeClues = (clue) => {
+    setChosenClues((prevClues) => prevClues.filter((c) => c !== clue));
+  };
+
+  const clues = { chosenClues, addClues, removeClues };
 
   return <AuthContext.Provider value={clues}>{children}</AuthContext.Provider>;
 }

@@ -10,7 +10,7 @@ const allCharacters = [
     img: '👩🏻‍🦰',
   },
   {
-    id: '2',
+    id: 2,
     name: 'Michale',
     last_name: 'Turner',
     description: `Michael is the victim's long-time business rival, always trying to outsmart John in the corporate world. They had a history of bitter competition.`,
@@ -18,7 +18,7 @@ const allCharacters = [
     img: '👨🏻',
   },
   {
-    id: '3',
+    id: 3,
     name: 'Isabella',
     last_name: 'Martínez',
     description: `Isabella is the victim's estranged daughter, who resented her father for prioritizing business over family. They had not spoken for years`,
@@ -30,21 +30,21 @@ const allCharacters = [
 const allRooms = [
   {
     id: '1',
-    room: 'study',
+    room: 'Study',
     main_location: 'mansion',
     description: `The room where the victim's body was discovered. It is elegantly furnished with antique furniture and lined with bookshelves filled with rare editions.`,
     img: '📚',
   },
   {
     id: '2',
-    room: 'ballroom',
+    room: 'Ballroom',
     main_location: 'mansion',
     description: `A grand ballroom with a sparkling chandelier, ornate decorations, and a polished marble floor. It seems to have been recently used for a party.`,
     img: '👯',
   },
   {
     id: '3',
-    room: 'conservatory',
+    room: 'Conservatory',
     main_location: 'mansion',
     description: `A tranquil conservatory filled with exotic plants and flowers. It offers a serene escape from the rest of the mansion.`,
     img: '🪴',
@@ -110,4 +110,10 @@ const allFakeClues = [
     img: '💙',
   },
 ];
-export default { allRooms, allFakeClues, allMurdererClues, allCharacters };
+export default {
+  allRooms,
+  allFakeClues,
+  allMurdererClues,
+  allCharacters,
+  murderer,
+};
