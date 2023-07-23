@@ -12,6 +12,9 @@ module.exports = async function db(query) {
     const DB_PASS = process.env.DB_PASS;
     const DB_NAME = process.env.DB_NAME;
 
+    // when deployed, need SSL
+    const ssl = process.env.DB_SSL === 'true' ? { ssl: { rejectUnauthorized: true }}: {}
+
     const con = mysql.createConnection({
       host: DB_HOST || "5000",
       user: DB_USER || "root",
@@ -19,6 +22,7 @@ module.exports = async function db(query) {
       database: DB_NAME || 'murderMystery',
       charset: 'utf8mb4',
       multipleStatements: true,
+      ...ssl
     });
 
     con.connect(function(err) {
