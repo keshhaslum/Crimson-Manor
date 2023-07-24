@@ -18,7 +18,6 @@ function SelectedCluesProvider({ children }) {
   };
 
   const resetClues = () => {
-    console.log('resetClues');
     setChosenClues([]);
   };
 

@@ -5,7 +5,7 @@ import { useChosenClues } from '../selectedCluesContext';
 
 // import ChosenClues from './ChosenClues';
 
-export default function Finalpage({ murdererId }) {
+export default function Finalpage({ murdererId, onPlayAgain }) {
   const chosenSuspect = useChosenSuspect();
   const cluesProvider = useChosenClues();
 
@@ -24,6 +24,7 @@ export default function Finalpage({ murdererId }) {
           className="button"
           onClick={() => {
             cluesProvider.resetClues();
+            onPlayAgain();
           }}
         >
           Play again

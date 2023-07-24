@@ -84,7 +84,12 @@ function App() {
             <Route path="/instructions" element={<Instructions />} />
             <Route
               path="/finalpage"
-              element={<Finalpage murdererId={gameData.character.id} />}
+              element={
+                <Finalpage
+                  murdererId={gameData.character.id}
+                  onPlayAgain={getGameData}
+                />
+              }
             />
           </Routes>
         </SelectedSuspectProvider>

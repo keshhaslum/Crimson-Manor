@@ -11,7 +11,6 @@ export default function Modal({ object, onClose }) {
   const chosenSuspect = useChosenSuspect();
 
   const isClue = !object.hasOwnProperty('name');
-  console.log('isClue?', isClue);
 
   return (
     <div className="modal-container">
