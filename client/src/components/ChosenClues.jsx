@@ -9,9 +9,9 @@ export default function ChosenClues() {
   const cluesProvider = useChosenClues();
   const chosenClues = cluesProvider.chosenClues;
 
-
   const removeClues = (clue) => {
     cluesProvider.removeClues(clue);
+    console.log('remove clues');
   };
   return (
     <div className="chosen-clues-container">

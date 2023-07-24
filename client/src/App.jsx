@@ -16,9 +16,6 @@ import Instructions from './components/Instructions';
 import Rooms from './components/Rooms';
 import Finalpage from './components/Finalpage';
 
-// Temporary
-import data from './mockData';
-
 function App() {
   const victimInfo = {
     name: 'John',

@@ -24,25 +24,28 @@ CREATE TABLE characters (
   name VARCHAR(50) NOT NULL,
   last_name VARCHAR(50) NOT NULL,
   description TEXT NOT NULL,
+  what_happened TEXT NOT NULL,
   img VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 );
--- Alter characters table
-ALTER TABLE characters MODIFY COLUMN img VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
+
 -- Populate characters table
-INSERT INTO characters (name, last_name, description, img) VALUES 
-  ('Emily', 'Green', 'Emily is the victims ambitious assistant, determined to climb the corporate ladder. She has been working for John Parker for years, but rumors suggest she was growing impatient with his management style.', '👩‍'),
-  ('Michale', 'Turner', 'Michael is the victims long-time business rival, always trying to outsmart John in the corporate world. They had a history of bitter competition.', '👨'),
-  ('Isabella', 'Martínez', 'Isabella is the victims estranged daughter, who resented her father for prioritizing business over family. They had not spoken for years', '💃');
+INSERT INTO characters (name, last_name, description, what_happened, img) VALUES 
+  ('Janet', 'Green', 'Janet is the victims ambitious assistant, determined to climb the corporate ladder. She has been working for John Parker for years, but rumors suggest she was growing impatient with his management style.', 'Janet Green''s ambition drove her to murder John Parker. She used the signed document to access his personal accounts and uncovered a secret business deal that could ruin her reputation. Fearing exposure, she sent the threatening letter to scare him away. On the night of the murder, she attended the party in the ballroom, wearing the cufflinks to establish an alibi. Later, she followed John to the study, where she shot him and left the murder weapon behind to frame someone else.', '‍👩🏻‍🦰'),
+  ('Michael', 'Turner', 'Michael is the victims long-time business rival, always trying to outsmart John in the corporate world. They had a history of bitter competition.', 'Michael Turner''s envy of John Parker''s success pushed him over the edge. He planned to sabotage John''s business deal, using the burner phone to coordinate the attack. He confronted John in the study, leading to a heated argument. In a fit of rage, he shot John and fled the scene, leaving behind the disguised costume as a diversion.', '👨🏻'),
+  ('Isabella', 'Martínez', 'Isabella is the victims estranged daughter, who resented her father for prioritizing business over family. They had not spoken for years','Isabella Martinez''s deep-seated resentment towards her father led her to commit the crime. She longed for a reconciliation but felt ignored by John. She confronted him in the study, expressing her frustration and anger. The argument escalated, and in a moment of intense emotion, she shot him. Realizing what she had done, she fled the scene, leaving behind the locket as a painful reminder of their broken relationship. With this information, you can populate the database and generate a randomly generated murder-mystery game each time the user plays. Enjoy the game creation process!', '💃');
+
+
 -- Create clues table
 CREATE TABLE clues (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   description TEXT NOT NULL,
   character_id INT NULL,
-  img VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  FOREIGN KEY (character_id) REFERENCES characters(id)
+  img VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 );
+
 -- Alter clues table
 ALTER TABLE clues MODIFY COLUMN img VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
+
 -- Populate clues table
 INSERT INTO clues (description, character_id, img) VALUES
 ('A signed document granting Emily access to John''s personal accounts', 1, '📝🔒'),

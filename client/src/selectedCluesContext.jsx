@@ -6,9 +6,6 @@ const Context = React.createContext();
 function SelectedCluesProvider({ children }) {
   const [chosenClues, setChosenClues] = useState([]);
 
-  //do i get all fake and murderer clues here?
-
-  
   const addClues = (clue) => {
     if (chosenClues.length >= 3) {
       return;
@@ -20,7 +17,12 @@ function SelectedCluesProvider({ children }) {
     setChosenClues((prevClues) => prevClues.filter((c) => c !== clue));
   };
 
-  const clues = { chosenClues, addClues, removeClues };
+  const resetClues = () => {
+    console.log('resetClues');
+    setChosenClues([]);
+  };
+
+  const clues = { chosenClues, addClues, removeClues, resetClues };
 
   return <Context.Provider value={clues}>{children}</Context.Provider>;
 }
