@@ -10,9 +10,6 @@ export default function ChosenClues() {
   const chosenClues = cluesProvider.chosenClues;
 
 
-  //getfakecluesby id
-  //get murderer clues by id
-
   const removeClues = (clue) => {
     cluesProvider.removeClues(clue);
   };

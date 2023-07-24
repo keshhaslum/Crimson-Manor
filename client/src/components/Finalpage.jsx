@@ -5,29 +5,12 @@ import data from '../mockData';
 import { useChosenSuspect } from '../selectedSuspectContext';
 import ChosenClues from './ChosenClues';
 
-export default function Finalpage() { 
+export default function Finalpage({murdererId}) {  //pass props of murdererid here
   const chosenSuspect = useChosenSuspect();
-  const [murderer, setMurderer] = useState(null);
 
-  useEffect(() => {
-    getMurderer();
-  }, []);
-
-  const getMurderer = async () => {
-  try {
-    const response = await fetch('/api/random'); 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data = await response.json();
-    setMurderer(data[0]);
-  } catch (error) {
-    console.error('Error fetching murderer character:', error);
-  }
-};
 
   const detectiveJobMessage =
-    murderer === chosenSuspect?.chosenSuspect.id
+    murdererId === chosenSuspect?.chosenSuspect.id
       ? 'Amazing detective job!'
       : 'Oh no! The murderer escaped!';
 
@@ -35,7 +18,7 @@ export default function Finalpage() {
   return (
     <div className="finalpage component-container">
       <h2 className="title">{detectiveJobMessage}</h2>
-      <p className="icon">{chosenSuspect.murderer.img}</p>  {/*is this right?*/}
+      <p className="icon">{chosenSuspect.chosenSuspect.img}</p>  {/*add murderer id here*/}
       <p className="description">{chosenSuspect.chosenSuspect.what_happened}</p>
       <Link to={`/`}>
         <button className="button">Play again</button>
