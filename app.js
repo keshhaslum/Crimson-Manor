@@ -19,7 +19,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use('/', indexRouter);
+// The next three routes are for serving static files as a result of the build
+// These should only be referenced in the case of using vite buld
+app.use('/storm.js', express.static('client', {index: 'storm.js'}));
+app.use('/static', express.static('client/dist'));
+app.use('/', express.static('client/dist', {index: 'index.html'}));
+//app.use('/', indexRouter);
+
+// These routes are for the API
 app.use('/api/characters', charactersRouter);
 app.use('/api/clues', cluesRouter); 
 app.use('/api/rooms', roomsRouter);
