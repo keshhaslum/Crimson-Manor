@@ -67,7 +67,6 @@ function App() {
                 <>
                   <Rooms
                     allMurdererClues={gameData.relatedClues}
-                    allCharacters={data.allCharacters}
                     allFakeClues={gameData.unrelatedClues}
                     victimInfo={victimInfo}
                     detectiveInfo={detectiveInfo}
@@ -79,9 +78,12 @@ function App() {
               path="/"
               element={<Homepage detectiveInfo={detectiveInfo} />}
             />
-            <Route path="/crime" element={<Crime />} />
+            <Route path="/crime" element={<Crime victimInfo={victimInfo} />} />
             <Route path="/scene" element={<Scene />} />
-            <Route path="/character" element={<Character />} />
+            <Route
+              path="/character"
+              element={<Character detectiveInfo={detectiveInfo} />}
+            />
             <Route path="/instructions" element={<Instructions />} />
             <Route
               path="/finalpage"

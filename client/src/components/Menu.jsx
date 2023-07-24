@@ -6,26 +6,24 @@ import './styles/menu.css';
 // Components
 import Modal from './Modal';
 
-export default function Menu({ allCharacters, victimInfo, detectiveInfo }) {
+export default function Menu({ victimInfo, detectiveInfo }) {
   const [currentCharacter, setCurrentCharacter] = useState(null);
 
-  // const [allCharacters, setAllCharacters] = useState([]);
+  const [allCharacters, setAllCharacters] = useState([]);
 
-  // useEffect(() => {
-  //   getAllCharacters();
-  // }, []);
+  useEffect(() => {
+    getAllCharacters();
+  }, []);
 
-  // const getAllCharacters = () => {
-  //   fetch("/api/characters") 
-  //     .then((response) => response.json()) 
-  //     .then((characters) => {
-  //       setAllCharacters(characters);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
+  const getAllCharacters = async () => {
+    try {
+      const response = await fetch('/api/characters');
+      const data = await response.json();
+      setAllCharacters(data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const closeModal = () => {
     setCurrentCharacter(null);

@@ -8,18 +8,15 @@ import './styles/rooms.css';
 
 // Components
 import Menu from './Menu';
-import Clue from './Clue'; // do not change this import 
+import Clue from './Clue';
 import ChosenClues from './ChosenClues';
 
-export default function ClueRooms({ 
-  // allRooms,
+export default function ClueRooms({
   allFakeClues,
   allMurdererClues,
-  allCharacters,
   victimInfo,
   detectiveInfo,
 }) {
-    
   const [allRooms, setAllRooms] = useState([]);
 
   useEffect(() => {
@@ -38,27 +35,25 @@ export default function ClueRooms({
       console.log(error);
     }
   };
-  
+
   const [clues, setClues] = useState([]);
 
-  function distributeClues () {
-    if (allMurdererClues.length && allFakeClues.length){
-       setClues(
-        [
-          {
-      room: 'room1',
-      clues: [allFakeClues[0], allFakeClues[1], allMurdererClues[0]],
-         },
-         {
-           room: 'room2',
-           clues: [allFakeClues[2], allFakeClues[3], allMurdererClues[1]],
-         },
-         {
-           room: 'room3',
-           clues: [allFakeClues[4], allFakeClues[5], allMurdererClues[2]],
-         },
-       ]
-       )
+  function distributeClues() {
+    if (allMurdererClues.length && allFakeClues.length) {
+      setClues([
+        {
+          room: 'room1',
+          clues: [allFakeClues[0], allFakeClues[1], allMurdererClues[0]],
+        },
+        {
+          room: 'room2',
+          clues: [allFakeClues[2], allFakeClues[3], allMurdererClues[1]],
+        },
+        {
+          room: 'room3',
+          clues: [allFakeClues[4], allFakeClues[5], allMurdererClues[2]],
+        },
+      ]);
     }
   }
 
@@ -66,37 +61,41 @@ export default function ClueRooms({
     distributeClues();
   }, [allMurdererClues, allFakeClues]);
 
-   const [roomTracker, setRoomTracker] = useState(0);
-   const [currentRoom, setCurrentRoom] = useState({room:"", img:"", description:""});
-   const [currentClues, setCurrentClues] = useState({clues:[]});
+  const [roomTracker, setRoomTracker] = useState(0);
+  const [currentRoom, setCurrentRoom] = useState({
+    room: '',
+    img: '',
+    description: '',
+  });
+  const [currentClues, setCurrentClues] = useState({ clues: [] });
 
-   useEffect(() => {
-     if (allRooms.length)setCurrentRoom(allRooms[roomTracker]);
-     if(clues.length)setCurrentClues(clues[roomTracker]);
-   }, [roomTracker]);
+  useEffect(() => {
+    if (allRooms.length) setCurrentRoom(allRooms[roomTracker]);
+    if (clues.length) setCurrentClues(clues[roomTracker]);
+  }, [roomTracker]);
 
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
-   const goToPreviousRoom = () => {
-     if (roomTracker === 0) {
-       navigate('/instructions');
-     } else {
-       setRoomTracker((prevRoomTracker) => prevRoomTracker - 1);
-     }
-   };
+  const goToPreviousRoom = () => {
+    if (roomTracker === 0) {
+      navigate('/instructions');
+    } else {
+      setRoomTracker((prevRoomTracker) => prevRoomTracker - 1);
+    }
+  };
 
-   const goToNextRoom = () => {
-     setRoomTracker((prevRoomTracker) =>
-       prevRoomTracker === allRooms.length - 1
-         ? prevRoomTracker
-         : prevRoomTracker + 1
-     );
-   };
+  const goToNextRoom = () => {
+    setRoomTracker((prevRoomTracker) =>
+      prevRoomTracker === allRooms.length - 1
+        ? prevRoomTracker
+        : prevRoomTracker + 1
+    );
+  };
 
   return (
     <>
-       <Menu
-        allCharacters={allCharacters}
+      <Menu
+        // allCharacters={allCharacters}
         victimInfo={victimInfo}
         detectiveInfo={detectiveInfo}
       ></Menu>
@@ -125,8 +124,7 @@ export default function ClueRooms({
             <Clue key={`clue${index}`} clue={clue} />
           ))}
         </div>
-
-      </div> 
+      </div>
     </>
   );
 }
