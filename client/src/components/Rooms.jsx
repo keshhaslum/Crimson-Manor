@@ -1,7 +1,6 @@
 // React
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useChosenClues } from '../selectedCluesContext';
+import { useNavigate } from 'react-router-dom';
 
 // Styles
 import './styles/rooms.css';
@@ -18,10 +17,30 @@ export default function ClueRooms({
   detectiveInfo,
 }) {
   const [allRooms, setAllRooms] = useState([]);
+  const [clues, setClues] = useState([]);
+  const [roomTracker, setRoomTracker] = useState(0);
+  const [currentRoom, setCurrentRoom] = useState({
+    room: '',
+    img: '',
+    description: '',
+  });
+  const [currentClues, setCurrentClues] = useState({ clues: [] });
 
   useEffect(() => {
+    distributeClues();
     getAllRooms();
-  }, []);
+  }, [allMurdererClues, allFakeClues]);
+
+  useEffect(() => {
+    if (allRooms.length > 0) {
+      setCurrentRoom(allRooms[0]);
+    }
+  }, [allRooms]);
+
+  useEffect(() => {
+    if (allRooms.length) setCurrentRoom(allRooms[roomTracker]);
+    if (clues.length) setCurrentClues(clues[roomTracker]);
+  }, [roomTracker, allRooms, clues]);
 
   const getAllRooms = async () => {
     try {
@@ -29,16 +48,12 @@ export default function ClueRooms({
       const data = await response.json();
 
       setAllRooms(data.data);
-      setCurrentRoom(data.data[0]);
-      console.log(data.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const [clues, setClues] = useState([]);
-
-  function distributeClues() {
+  const distributeClues = () => {
     if (allMurdererClues.length && allFakeClues.length) {
       setClues([
         {
@@ -55,24 +70,7 @@ export default function ClueRooms({
         },
       ]);
     }
-  }
-
-  useEffect(() => {
-    distributeClues();
-  }, [allMurdererClues, allFakeClues]);
-
-  const [roomTracker, setRoomTracker] = useState(0);
-  const [currentRoom, setCurrentRoom] = useState({
-    room: '',
-    img: '',
-    description: '',
-  });
-  const [currentClues, setCurrentClues] = useState({ clues: [] });
-
-  useEffect(() => {
-    if (allRooms.length) setCurrentRoom(allRooms[roomTracker]);
-    if (clues.length) setCurrentClues(clues[roomTracker]);
-  }, [roomTracker]);
+  };
 
   const navigate = useNavigate();
 
@@ -120,9 +118,13 @@ export default function ClueRooms({
         </div>
 
         <div className="clues-container">
-          {currentClues.clues.map((clue, index) => (
-            <Clue key={`clue${index}`} clue={clue} />
-          ))}
+          {currentClues.clues.length > 0 ? (
+            currentClues.clues.map((clue, index) => (
+              <Clue key={`clue${index}`} clue={clue} />
+            ))
+          ) : (
+            <p>No clues available for this room.</p>
+          )}
         </div>
       </div>
     </>
