@@ -1,5 +1,5 @@
 // React
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // Styles
 import './styles/menu.css';
 
@@ -8,6 +8,24 @@ import Modal from './Modal';
 
 export default function Menu({ allCharacters, victimInfo, detectiveInfo }) {
   const [currentCharacter, setCurrentCharacter] = useState(null);
+
+  // const [allCharacters, setAllCharacters] = useState([]);
+
+  // useEffect(() => {
+  //   getAllCharacters();
+  // }, []);
+
+  // const getAllCharacters = () => {
+  //   fetch("/api/characters") 
+  //     .then((response) => response.json()) 
+  //     .then((characters) => {
+  //       setAllCharacters(characters);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
 
   const closeModal = () => {
     setCurrentCharacter(null);

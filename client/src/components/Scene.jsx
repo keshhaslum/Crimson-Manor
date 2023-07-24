@@ -17,7 +17,8 @@ export default function Scene() {
         night's end? The stage is set, and the game of life and death begins in
         Crimson Manor.
       </p>
-
+      
+    
       <Link to={`/crime/`}>
         <button className="button">Continue</button>
       </Link>

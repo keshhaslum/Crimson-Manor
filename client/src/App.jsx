@@ -2,6 +2,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { SelectedCluesProvider } from './selectedCluesContext';
 import { SelectedSuspectProvider } from './selectedSuspectContext';
+import { useState, useEffect } from 'react';
 
 // Styles
 import './App.css';
@@ -16,7 +17,8 @@ import Rooms from './components/Rooms';
 import Finalpage from './components/Finalpage';
 
 // Temporary
-import data from './mockData';
+import data from './mockData'; 
+
 
 function App() {
   const victimInfo = {
@@ -32,7 +34,35 @@ function App() {
     description: `Detective Sarah Williams is a seasoned investigator with a sharp mind and keen attention to detail. She has an impressive track record of solving complex cases and has a reputation for always getting to the truth.`,
     img: '🕵🏼‍♀️',
   };
+  
 
+ const [gameData, setGameData] = useState({character:{}, relatedClues:[], unrelatedClues:[]});
+
+ useEffect(() => {
+   getGameData();
+
+  }, []);
+
+ const getGameData = () => {
+  fetch("/api/random")
+ .then((response) => response.json()) 
+ .then((random) => {
+     setGameData(random);
+     console.log(random);
+   })
+   .catch((error) => {
+    console.log(error);
+  });
+};
+
+
+  //const allFakeClues = randomGameInfo.unrelatedClues - this will give an array
+  //[{clue1}, {clue2} etc up until 6 ]
+
+  //const allMurdererClues= randomGameInfo.relatedClues 
+  //[{clue1} up until clue 3] --pass below the props 
+
+  //const randomcharacter.random character.id
   return (
     <div className="game-container">
       <SelectedCluesProvider>
@@ -43,10 +73,11 @@ function App() {
               element={
                 <>
                   <Rooms
-                    allRooms={data.allRooms}
-                    allFakeClues={data.allFakeClues}
-                    allMurdererClues={data.allMurdererClues}
+                    // allRooms={data.ClueRooms} //do I still need these?
+                    // allClues={data.allClues}
+                    allMurdererClues={gameData.relatedClues}//needs to come from api 
                     allCharacters={data.allCharacters}
+                    allFakeClues={gameData.unrelatedClues}//this will end up being just allFakeClues instead of data.
                     victimInfo={victimInfo}
                     detectiveInfo={detectiveInfo}
                   />
@@ -63,7 +94,7 @@ function App() {
             <Route path="/instructions" element={<Instructions />} />
             <Route
               path="/finalpage"
-              element={<Finalpage murdererId={data.murderer} />}
+              element={<Finalpage murdererId={gameData.character} />}
             />
           </Routes>
         </SelectedSuspectProvider>
