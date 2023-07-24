@@ -16,7 +16,8 @@ import Rooms from './components/Rooms';
 import Finalpage from './components/Finalpage';
 
 // Temporary
-import data from './mockData';
+import data from './mockData'; 
+
 
 function App() {
   const victimInfo = {
@@ -43,8 +44,8 @@ function App() {
               element={
                 <>
                   <Rooms
-                    allRooms={data.allRooms}
-                    allFakeClues={data.allFakeClues}
+                    allRooms={data.ClueRooms} //do I still need these?
+                    allClues={data.allClues}
                     allMurdererClues={data.allMurdererClues}
                     allCharacters={data.allCharacters}
                     victimInfo={victimInfo}

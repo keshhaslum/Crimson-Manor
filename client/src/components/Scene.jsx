@@ -16,12 +16,8 @@ export default function Scene() {
         treacherous halls, unravel the truth, and expose the killer before the
         night's end? The stage is set, and the game of life and death begins in
         Crimson Manor.
-      </h5>
+      </p>
       
-      <Link to={`/`}>
-        <button className="regular-button">Previous</button>
-      </Link>
-
     
       <Link to={`/crime/`}>
         <button className="button">Continue</button>
